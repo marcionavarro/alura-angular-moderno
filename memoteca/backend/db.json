@@ -4,49 +4,57 @@
       "id": 1,
       "conteudo": "As pessoas felizes lembram o passado com gratidão, alegram-se com o presente e encaram o futuro sem medo.",
       "autoria": "Epicuro",
-      "modelo": "modelo1"
+      "modelo": "modelo1",
+      "favorito": true
     },
     {
       "id": 2,
       "conteudo": "Quanto maior se é, mais repetido se é. Platão, Aristóteles, Kant, quantos outros. Ainda se não calaram nos que deles falaram. E é possível que só se calem quando a espécie humana se calar.",
       "autoria": "Vergílio Ferreira",
-      "modelo": "modelo2"
+      "modelo": "modelo2",
+      "favorito": false
     },
     {
       "id": 4,
       "conteudo": "Desconfie do destino e acredite em você. Gaste mais horas realizando que sonhando, fazendo que planejando, vivendo que esperando porque, embora quem quase morre esteja vivo, quem quase vive já morreu.",
       "autoria": "Sarah Westphal",
-      "modelo": "modelo3"
+      "modelo": "modelo3",
+      "favorito": false
     },
     {
       "conteudo": "O ignorante afirma, o sábio duvida, o sensato reflete",
       "autoria": "Aristóteles",
       "modelo": "modelo2",
-      "id": 5
+      "id": 5,
+      "favorito": true
     },
     {
       "conteudo": "A vantagem de ter péssima memória é divertir-se muitas vezes com as mesmas coisas boas como se fosse a primeira vez.",
       "autoria": "Friedrich Nietzsche",
       "modelo": "modelo3",
-      "id": 6
+      "id": 6,
+      "favorito": true
     },
     {
       "conteudo": "Para conhecermos os amigos é necessário passar pelo sucesso e pela desgraça. No sucesso, verificamos a quantidade e, na desgraça, a qualidade.",
       "autoria": "Confúcio",
       "modelo": "modelo2",
-      "id": 7
+      "id": 7,
+      "favorito": false
     },
     {
       "conteudo": "Quero para mim o espírito desta frase, transformada a forma para a casar com o que eu sou: viver não é necessário, o que é necessário é criar.",
       "autoria": "Fernando Pessoa",
       "modelo": "modelo2",
-      "id": 8
+      "id": 8,
+      "favorito": true
     },
     {
       "id": 9,
       "conteudo": "Deve-se temer a velhice, porque ela nunca vem só. Bengalas são provas de idade e não de prudência.",
       "autoria": "Platão",
-      "modelo": "modelo3"
+      "modelo": "modelo3",
+      "favorito": false
     }
   ]
 }

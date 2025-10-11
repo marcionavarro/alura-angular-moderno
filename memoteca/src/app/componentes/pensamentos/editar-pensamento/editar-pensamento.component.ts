@@ -16,7 +16,8 @@ export class EditarPensamentoComponent implements OnInit {
     id: 0,
     conteudo: '',
     autoria: '',
-    modelo: ''
+    modelo: '',
+    favorito: false
   }
   constructor(
     private service: PensamentoService,
@@ -64,7 +65,8 @@ export class EditarPensamentoComponent implements OnInit {
         Validators.required,
         Validators.minLength(3)
       ])],
-      modelo: [this.pensamento.modelo, [Validators.required]]
+      modelo: [this.pensamento.modelo, [Validators.required]],
+      favorito: [this.pensamento.favorito]
     })
   }
 

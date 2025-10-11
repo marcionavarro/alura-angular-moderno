@@ -11,11 +11,26 @@
     <b>{{ pensamento.autoria }}</b>
   </p>
   <div class="acoes">
+    <button class="botao-favorito">
+      <img
+        [src]="'/assets/imagens/icone-favorito-'+ iconeFavorito +'.png'"
+        alt="Icone favorito"
+        (click)="atualizarFavoritos()"
+      />
+    </button>
     <button class="botao-editar">
-      <img src="/assets/imagens/icone-editar.png" alt="Ícone de editar" [routerLink]="['/pensamentos/editar-pensamento/', pensamento.id]"/>
+      <img
+        src="/assets/imagens/icone-editar.png"
+        alt="Ícone de editar"
+        [routerLink]="['/pensamentos/editar-pensamento/', pensamento.id]"
+      />
     </button>
     <button class="botao-excluir">
-      <img src="/assets/imagens/icone-excluir.png" alt="Ícone de excluir" [routerLink]="['/pensamentos/excluir-pensamento/', pensamento.id]"/>
+      <img
+        src="/assets/imagens/icone-excluir.png"
+        alt="Ícone de excluir"
+        [routerLink]="['/pensamentos/excluir-pensamento/', pensamento.id]"
+      />
     </button>
   </div>
 </div>
