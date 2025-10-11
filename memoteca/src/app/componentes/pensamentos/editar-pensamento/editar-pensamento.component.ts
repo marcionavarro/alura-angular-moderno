@@ -30,12 +30,7 @@ export class EditarPensamentoComponent implements OnInit {
   }
 
   editarPensamento() {
-    const pensamentoAtualizado: Pensamento = {
-      ...this.pensamento,
-      ...this.formulario.value
-    }
-    this.service.editar(pensamentoAtualizado).subscribe(() => {
-      console.log(pensamentoAtualizado)
+    this.service.editar(this.formulario.value).subscribe(() => {
       this.router.navigate(['listar-pensamento'])
     })
   }
@@ -60,15 +55,16 @@ export class EditarPensamentoComponent implements OnInit {
 
  private validarFormulario() {
     this.formulario = this.formBuilder.group({
-      conteudo: [this.pensamento.conteudo || "", Validators.compose([
+      id: [this.pensamento.id],
+      conteudo: [this.pensamento.conteudo, Validators.compose([
         Validators.required,
         Validators.pattern(/(.|\s)*\s(.|\s)*/)
       ])],
-      autoria: [this.pensamento.autoria || "", Validators.compose([
+      autoria: [this.pensamento.autoria, Validators.compose([
         Validators.required,
         Validators.minLength(3)
       ])],
-      modelo: [this.pensamento.modelo || "", [Validators.required]]
+      modelo: [this.pensamento.modelo, [Validators.required]]
     })
   }
 

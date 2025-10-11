@@ -25,10 +25,34 @@
       "modelo": "modelo3"
     },
     {
-      "conteudo": "Que a força esteja com você",
-      "autoria": "Teste Yoda",
-      "modelo": "modelo1",
+      "conteudo": "O ignorante afirma, o sábio duvida, o sensato reflete",
+      "autoria": "Aristóteles",
+      "modelo": "modelo2",
       "id": 5
+    },
+    {
+      "conteudo": "A vantagem de ter péssima memória é divertir-se muitas vezes com as mesmas coisas boas como se fosse a primeira vez.",
+      "autoria": "Friedrich Nietzsche",
+      "modelo": "modelo3",
+      "id": 6
+    },
+    {
+      "conteudo": "Para conhecermos os amigos é necessário passar pelo sucesso e pela desgraça. No sucesso, verificamos a quantidade e, na desgraça, a qualidade.",
+      "autoria": "Confúcio",
+      "modelo": "modelo2",
+      "id": 7
+    },
+    {
+      "conteudo": "Quero para mim o espírito desta frase, transformada a forma para a casar com o que eu sou: viver não é necessário, o que é necessário é criar.",
+      "autoria": "Fernando Pessoa",
+      "modelo": "modelo2",
+      "id": 8
+    },
+    {
+      "id": 9,
+      "conteudo": "Deve-se temer a velhice, porque ela nunca vem só. Bengalas são provas de idade e não de prudência.",
+      "autoria": "Platão",
+      "modelo": "modelo3"
     }
   ]
 }
