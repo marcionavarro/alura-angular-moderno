@@ -1,27 +1,82 @@
-# Memoteca
+# 🧠 Memoteca - Projeto Angular
+Guarde trechos de músicas, citações de livros, pensamentos e suas melhores ideias.
+---
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
+## 🚀 Funcionalidades
 
-## Development server
+✅ Cadastro e exibição de citações, pensamentos e frases inspiradoras  
+✅ Organização de conteúdos favoritos  
+✅ Interface moderna e responsiva  
+✅ Busca dinâmica de pensamentos  
+✅ Integração com backend JSON local  
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## ⚙️ Instalação e Execução
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 🔧 Pré-requisitos
+- **Node.js** (versão 16 ou superior)
+- **Angular CLI** (v14)
+- **JSON Server** para o backend fake
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 🖥️ Passo a passo para rodar o projeto
 
-## Running unit tests
+#### 1️⃣ Clone o repositório
+```bash
+git clone https://github.com/marcionavarro/alura-angular-moderno.git
+cd alura-angular-moderno
+````
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2️⃣ Instale as dependências do front-end
+```bash
+npm install
+````
 
-## Running end-to-end tests
+2️⃣ Suba o servidor JSON (backend)
+```bash
+cd backend
+npm install
+npm start ou npx json-server --watch db.json --port 3000
+````
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+O servidor backend estará disponível em:  
+👉 http://localhost:3000/pensamentos  
 
-## Further help
+2️⃣ Suba o servidor JSON (backend)
+```bash
+cd ..
+npm start
+````  
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## 🧩 Tecnologias Utilizadas
+
+* Angular 14
+* TypeScript
+* RxJS
+* HTML5 / CSS3
+* JSON Server
+* Node.js
+
+
+## 📸 Screenshots
+
+### Meu Mural
+![Tela principal Meu Mural](image.png)
+
+### Meus Favoritos
+![Tela Meus Favoritos](image-1.png)
+
+### Pesquisa
+![Tela de Pesquisa](image-2.png)
+
+### Cadastro de Pensamento
+![Tela de Cadastro de Pensamento](image-3.png)
+
+
+## 🧑‍💻 Autor
+
+Márcio Navarro  
+📍 [github.com/marcionavarro](github.com/marcionavarro)  
+Projeto desenvolvido durante os cursos da [Alura](https://www.alura.com.br/).
