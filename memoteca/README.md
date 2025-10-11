@@ -26,7 +26,7 @@ Guarde trechos de músicas, citações de livros, pensamentos e suas melhores id
 #### 1️⃣ Clone o repositório
 ```bash
 git clone https://github.com/marcionavarro/alura-angular-moderno.git
-cd alura-angular-moderno
+cd alura-angular-moderno/memoteca
 ````
 
 2️⃣ Instale as dependências do front-end
@@ -63,16 +63,16 @@ npm start
 ## 📸 Screenshots
 
 ### Meu Mural
-![Tela principal Meu Mural](image.png)
+![Tela principal Meu Mural](../memoteca/src/assets/screenshots/image.png)
 
 ### Meus Favoritos
-![Tela Meus Favoritos](image-1.png)
+![Tela Meus Favoritos](../memoteca/src/assets/screenshots/image-1.png)
 
 ### Pesquisa
-![Tela de Pesquisa](image-2.png)
+![Tela de Pesquisa](../memoteca/src/assets/screenshots/image-2.png)
 
 ### Cadastro de Pensamento
-![Tela de Cadastro de Pensamento](image-3.png)
+![Tela de Cadastro de Pensamento](../memoteca/src/assets/screenshots/image-3.png)
 
 
 ## 🧑‍💻 Autor
