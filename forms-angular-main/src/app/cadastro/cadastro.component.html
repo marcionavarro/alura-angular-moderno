@@ -39,7 +39,20 @@
           type="date"
           class="campo__escrita"
           ngModel
+          required
+          maiorIdadeValidator
+          #nascimento="ngModel"
         />
+        <div *ngIf="(nascimento?.invalid && nascimento?.touched) || nascimento?.dirty">
+        <app-mensagem
+          *ngIf="nascimento?.errors?.['required']"
+          mensagem="A data de nascimento deve ser preenchida"
+        ></app-mensagem>
+        <app-mensagem
+          *ngIf="nascimento?.errors?.['maiorIdadeValidator']"
+          mensagem="O usuário deve ser maior que 18 anos"
+        ></app-mensagem>
+      </div>
       </div>
       <div class="formulario__campo">
         <label class="campo__etiqueta" for="telefone">Contato</label>
@@ -51,6 +64,7 @@
           class="campo__escrita"
           ngModel
           required
+          #telefone="ngModel"
           pattern="(\(?\d{2}\)?\s?)(\d{5}\-?\d{4})"
         />
         <div
@@ -80,6 +94,7 @@
         class="campo__escrita"
         ngModel
         required
+        #email="ngModel"
         pattern="^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$"
       />
       <div
