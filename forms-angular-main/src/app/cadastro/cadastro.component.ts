@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 })
 export class CadastroComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+}
 
   ngOnInit(): void {
   }
@@ -18,5 +19,7 @@ export class CadastroComponent implements OnInit {
     return form.valid 
     ? this.router.navigate(['./sucesso'])
     : alert('Formulário inválido')
+
+    // console.log("🚀 ~ cadastrar ~ form", form.controls)
   }
 }
