@@ -5,14 +5,14 @@
       "conteudo": "As pessoas felizes lembram o passado com gratidão, alegram-se com o presente e encaram o futuro sem medo.",
       "autoria": "Epicuro",
       "modelo": "modelo1",
-      "favorito": true
+      "favorito": false
     },
     {
       "id": 2,
       "conteudo": "Quanto maior se é, mais repetido se é. Platão, Aristóteles, Kant, quantos outros. Ainda se não calaram nos que deles falaram. E é possível que só se calem quando a espécie humana se calar.",
       "autoria": "Vergílio Ferreira",
       "modelo": "modelo2",
-      "favorito": false
+      "favorito": true
     },
     {
       "id": 4,
@@ -26,7 +26,7 @@
       "autoria": "Aristóteles",
       "modelo": "modelo2",
       "id": 5,
-      "favorito": true
+      "favorito": false
     },
     {
       "conteudo": "A vantagem de ter péssima memória é divertir-se muitas vezes com as mesmas coisas boas como se fosse a primeira vez.",
