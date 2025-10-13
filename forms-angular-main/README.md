@@ -1,27 +1,64 @@
-# FormsReativos
+# 🧠 FormsReativos - Projeto Angular
+Neste projeto, aprendemos a trabalhar com **formulários reativos** no Angular — desde a criação, validação e envio de dados, até a exibição de mensagens de sucesso e personalização de diretivas para validações específicas..
+---
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+## 🚀 Funcionalidades
 
-## Development server
+✅ Criação e validação de formulários reativos  
+✅ Validações personalizadas por diretivas (`maior-idade`, `validando-cep`)  
+✅ Consulta de CEP via serviço HTTP  
+✅ Feedback visual para erros de formulário  
+✅ Mensagens dinâmicas de sucesso após envio  
+✅ Arquitetura organizada por módulos, serviços e componentes  
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## ⚙️ Instalação e Execução
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 🔧 Pré-requisitos
+- **Node.js** (versão 16 ou superior)
+- **Angular CLI** (v14)
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 🖥️ Passo a passo para rodar o projeto
 
-## Running unit tests
+#### 1️⃣ Clone o repositório
+```bash
+git clone https://github.com/marcionavarro/alura-angular-moderno.git
+cd alura-angular-moderno/forms-angular-main
+````
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2️⃣ Instale as dependências do front-end
+```bash
+npm install
 
-## Running end-to-end tests
+ng serve 
+````
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 🧩 Tecnologias Utilizadas
 
-## Further help
+* Angular 14
+* TypeScript
+* Reactive Forms
+* RxJS
+* HTML5 / CSS3
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## 📸 Screenshots
+
+### Validação Erro
+![Tela principal Meu Mural](../forms-angular-main/src/assets/screenshots/image-validate-errors.png)
+
+### Validação Sucesso
+![Tela Meus Favoritos](../forms-angular-main/src/assets/screenshots/image-validate-sucess.png)
+
+### Tela de Sucesso
+![Tela de Pesquisa](../forms-angular-main/src/assets/screenshots/tela-sucesso.png)
+
+
+## 🧑‍💻 Autor
+
+Márcio Navarro  
+📍 [github.com/marcionavarro](github.com/marcionavarro)  
+Projeto desenvolvido durante os cursos da [Alura](https://www.alura.com.br/).
