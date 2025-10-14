@@ -1,27 +1,80 @@
-# LifeCycle
+# 🛒 Lista de Compras - Projeto Angular
+construímos um **app de lista de compras** e exploramos as **etapas do ciclo de vida dos componentes no Angular**, aplicando conceitos fundamentais de reatividade e gerenciamento de estado local com `localStorage`.
+---
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+## 🚀 Funcionalidades
 
-## Development server
+✅ Adicionar novos itens à lista de compras  
+✅ Editar e excluir itens  
+✅ Marcar itens como concluídos  
+✅ Limpar toda a lista com um clique  
+✅ Persistência de dados no **localStorage**  
+✅ Exibição de data e hora do item adicionado   
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🧠 Hooks do Ciclo de Vida do Angular
 
-## Build
+Este projeto foi criado com foco em **entender os principais lifecycle hooks** do Angular e suas aplicações práticas:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+| Hook | Função | Aplicação no Projeto |
+|------|---------|----------------------|
+| `OnInit` | Executado na inicialização do componente | Utilizado para carregar a lista de compras armazenada no `localStorage` |
+| `DoCheck` | Chamado a cada detecção de mudanças | Usado para atualizar automaticamente o `localStorage` sempre que há modificações na lista |
+| `OnDestroy` | Executado antes de o componente ser destruído | Ideal para liberar recursos ou salvar o estado antes do fechamento da aplicação |
 
-## Running unit tests
+Esses hooks permitem entender **quando e como o Angular detecta e reage às mudanças** no ciclo de vida do componente, oferecendo maior controle sobre o comportamento da aplicação.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## ⚙️ Instalação e Execução
 
-## Running end-to-end tests
+### 🔧 Pré-requisitos
+- **Node.js** (versão 16 ou superior)
+- **Angular CLI** (v14)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+### 🖥️ Passo a passo para rodar o projeto
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+#### 1️⃣ Clone o repositório
+```bash
+git clone https://github.com/marcionavarro/alura-angular-moderno.git
+cd alura-angular-moderno/life-cycle
+````
+
+2️⃣ Instale as dependências
+```bash
+npm install
+````
+
+3️⃣ Rode o servidor de desenvolvimento
+```bash
+npm start
+````
+
+
+## 🧩 Tecnologias Utilizadas
+
+* Angular 14
+* TypeScript
+* LocalStorage
+* HTML5 / CSS3
+
+
+## 📸 Screenshots
+
+### Validação Erro
+![Tela principal Meu Mural](../forms-angular-main/src/assets/screenshots/image-validate-errors.png)
+
+### Validação Sucesso
+![Tela Meus Favoritos](../forms-angular-main/src/assets/screenshots/image-validate-sucess.png)
+
+### Tela de Sucesso
+![Tela de Pesquisa](../forms-angular-main/src/assets/screenshots/tela-sucesso.png)
+
+
+## 🧑‍💻 Autor
+
+Márcio Navarro  
+📍 [github.com/marcionavarro](github.com/marcionavarro)  
+Projeto desenvolvido durante os cursos da [Alura](https://www.alura.com.br/).
