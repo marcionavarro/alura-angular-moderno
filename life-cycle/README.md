@@ -63,14 +63,8 @@ npm start
 
 ## 📸 Screenshots
 
-### Validação Erro
-![Tela principal Meu Mural](../forms-angular-main/src/assets/screenshots/image-validate-errors.png)
-
-### Validação Sucesso
-![Tela Meus Favoritos](../forms-angular-main/src/assets/screenshots/image-validate-sucess.png)
-
-### Tela de Sucesso
-![Tela de Pesquisa](../forms-angular-main/src/assets/screenshots/tela-sucesso.png)
+### 🧾 Interface Principal
+![alt text](image.png)
 
 
 ## 🧑‍💻 Autor
