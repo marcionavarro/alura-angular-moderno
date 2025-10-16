@@ -1,27 +1,82 @@
-# Buscante
+# 📚 Buscante - Projeto Angular
+### Neste curso da Alura, desenvolvemos uma aplicação Angular que consome a API do Google Books de forma reativa, utilizando o RxJS para gerenciar fluxos de dados, eventos e requisições assíncronas com eficiência e elegância..
+---
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.3.
+## 🚀 Funcionalidades
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- 🔍 **Busca de livros em tempo real**  
+  A aplicação se conecta à **Google Books API** e realiza buscas conforme o usuário digita, sem a necessidade de cliques adicionais.
+- ⏳ **Controle de requisições**  
+  Uso de operadores RxJS como `debounceTime` e `distinctUntilChanged` para evitar requisições desnecessárias e melhorar a performance.
+- ⚙️ **Tratamento de erros**  
+  Implementação de operadores como `catchError` para capturar falhas de rede e exibir mensagens amigáveis ao usuário.
+- 🔄 **Programação reativa**  
+  Através do uso de **Observables**, **Subjects** e **pipe operators**, o fluxo de dados da aplicação é totalmente reativo, reagindo automaticamente às mudanças de estado.
+- 📦 **Integração com serviços Angular**  
+  Toda a comunicação com a API é feita via **serviço** dedicado (`BookService`), garantindo um código limpo e desacoplado.
 
-## Code scaffolding
+---  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🧠 Conceitos abordados
 
-## Build
+- Introdução à **programação reativa**  
+- Criação e manipulação de **Observables**  
+- Uso de **operadores RxJS** (`map`, `filter`, `switchMap`, `debounceTime`, `distinctUntilChanged`, `catchError`, etc.)  
+- Diferença entre **Observable** e **Promise**  
+- Comunicação entre componentes reativos  
+- Melhoria de performance em requisições HTTP  
+- Boas práticas no uso de **RxJS** com **Angular**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## ⚙️ Instalação e Execução
 
-## Running unit tests
+### 🔧 Pré-requisitos
+- **Node.js** (versão 16 ou superior)
+- **Angular CLI** (v14)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+### 🖥️ Passo a passo para rodar o projeto
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+#### 1️⃣ Clone o repositório
+```bash
+git clone https://github.com/marcionavarro/alura-angular-moderno.git
+cd alura-angular-moderno/buscante
+````
 
-## Further help
+2️⃣ Instale as dependências
+```bash
+npm install
+````
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+3️⃣ Rode o servidor de desenvolvimento
+```bash
+npm start ou ng serve
+````
+
+
+## 🧩 Tecnologias utilizadas
+
+- **Angular**  
+- **RxJS**  
+- **TypeScript**  
+- **Google Books API**  
+- **HTML5 / CSS3**
+
+---
+
+
+## 📸 Screenshots
+
+### 🧾 Interface Principal
+![alt text](image1.png)
+
+### 🧾 Interface de Pesquisa
+![alt text](image2.png)
+
+
+## 🧑‍💻 Autor
+
+Márcio Navarro  
+📍 [github.com/marcionavarro](github.com/marcionavarro)  
+Projeto desenvolvido durante os cursos da [Alura](https://www.alura.com.br/).
