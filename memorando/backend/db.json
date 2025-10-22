@@ -34,6 +34,34 @@
       "statusFinalizado": true,
       "categoria": "Trabalho",
       "prioridade": "Normal"
+    },
+    {
+      "id": 8,
+      "descricao": "Nova Tarefa",
+      "statusFinalizado": true,
+      "categoria": "Casa",
+      "prioridade": "Normal"
+    },
+    {
+      "id": 9,
+      "descricao": "Teste Refatoração",
+      "statusFinalizado": true,
+      "categoria": "Trabalho",
+      "prioridade": "Baixa"
+    },
+    {
+      "id": 10,
+      "descricao": "teste",
+      "statusFinalizado": true,
+      "categoria": "Casa",
+      "prioridade": "Alta"
+    },
+    {
+      "id": 11,
+      "descricao": "Nova Tarefa",
+      "statusFinalizado": true,
+      "categoria": "Trabalho",
+      "prioridade": "Baixa"
     }
   ]
 }
