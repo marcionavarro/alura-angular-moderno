@@ -1,41 +1,77 @@
-![Buscante](thumbnail.png)
+# ♿ Buscante Acessibilidade - Angular
 
-# Buscante
+Aplicação **Buscante** mais inclusiva, aplicando práticas de **Acessibilidade Web (A11Y)** com **Angular 19**, melhorando a experiência de navegação para todos os usuários.
 
-Aplicação que permite pesquisar e descobrir livros utilizando a API do Google Books. 
+---
 
-## 🔨 Funcionalidades do projeto
+## 🧠 O que aprendemos
 
-### Pesquisa de Livros:
+Durante o curso, foram aplicadas técnicas de **Acessibilidade Avançada** no Angular, incluindo:
 
-As pessoas podem inserir palavras-chave na barra de pesquisa para buscar livros de forma dinâmica.
+- ✳️ Adicionar acessibilidade no projeto **Buscante**;  
+- 🧭 Ajustar **roteamento**, **formulários** e **modais** com foco em acessibilidade;  
+- 🔊 Fornecer **feedback auditivo** através de mensagens dinâmicas e leitores de tela;  
+- 🏷️ Inserção de **atributos ARIA** para tornar os componentes compreensíveis por tecnologias assistivas.
 
-### Detalhes do Livro:
+---
 
-Ao clicar em um livro específico pode-se obter mais detalhes, como título, sinopse, autoria e outras informações fornecidas pela API do Google Books.
+## 🧩 Tecnologias utilizadas
 
-### Link para ler prévia do livro:
+| Tecnologia | Descrição |
+|-------------|------------|
+| **Angular 19** | Framework principal da aplicação |
+| **TypeScript** | Linguagem base utilizada no Angular |
+| **HTML5 / CSS3** | Estrutura e estilização da aplicação |
+| **ARIA (Accessible Rich Internet Applications)** | Atributos para melhorar a acessibilidade |
+| **Node.js 20.x** | Ambiente de execução para o Angular CLI |
+| **RxJS** | Programação reativa para eventos e dados |
 
-Link com opção de ler uma prévia do livro.
+---
 
-## ✔️ Técnicas e tecnologias utilizadas
+## ⚙️ Como instalar o projeto
 
-As técnicas e tecnologias utilizadas foram:
+### 🔹 Pré-requisitos
 
-- `Angular`
-- `Google Books API`
-- `RxJs`
+Antes de começar, verifique se você possui instalado:
+- [Node.js **v20.x**](https://nodejs.org/)
+- [Angular CLI **v19+**](https://angular.io/cli)
+- NPM (gerenciador de pacotes do Node)
 
-## 📁 Acesso ao projeto
+### 🔹 Passos de instalação
 
-Você pode [acessar o código fonte do projeto inicial](https://github.com/nayannelbatista/3491-angular-a11y) ou [baixá-lo](https://github.com/nayannelbatista/3491-angular-a11y/archive/refs/heads/projeto-base.zip).
+```bash
+# Clonar o repositório
+git clone https://github.com/marcionavarro/alura-angular-moderno.git
 
-## 🛠️ Abrir e rodar o projeto
+# Entrar no diretório do projeto
+cd buscante-acessibilidade
 
-Para abrir e rodar o projeto, execute *npm i* para instalar as dependências e *ng serve* para iniciar o projeto.
+# Instalar as dependências
+npm install
 
-Depois, acesse [http://localhost:4200/](url) no seu navegador. 
+# Rodar o servidor de desenvolvimento
+ng serve
 
-## 📚 Mais informações do curso
+# Acessar no navegador
+http://localhost:4200
+```
 
-O curso visa implementar estratégias de acessibilidade para tornar o Buscante uma aplicação mais inclusiva e acessível.
+## 🖼️ Screenshots
+
+Abaixo está uma das telas do curso, mostrando os tópicos principais abordados:
+
+### Tela Principal
+![Tela Principal](./screenshots/image1.png)
+
+### Tela Sobre
+![Tela Sobre](./screenshots/image2.png)
+
+### Tela contato
+![Tela Contato](./screenshots/image3.png)
+
+---
+
+🧑‍💻 Autor
+Márcio Navarro  
+📍 [marcionavarro](https://marcionavarro.com.br)  
+Projeto desenvolvido durante os cursos da [Alura](https://www.alura.com.br/).
