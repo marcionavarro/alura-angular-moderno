@@ -29,6 +29,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import localePt from '@angular/common/locales/pt';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BotaoControleComponent } from './shared/botao-controle/botao-controle.component';
 import { ModalComponent } from './shared/modal/modal.component';
 registerLocaleData(localePt);
@@ -75,7 +76,8 @@ export const MY_DATE_FORMATS = {
     MatDatepickerModule,
     MatNativeDateModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' },
