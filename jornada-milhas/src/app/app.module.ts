@@ -27,9 +27,10 @@ import { HeaderComponent } from './shared/header/header.component';
 
 // Para registrar o locale
 import { registerLocaleData } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import localePt from '@angular/common/locales/pt';
-import { ModalComponent } from './shared/modal/modal.component';
 import { BotaoControleComponent } from './shared/botao-controle/botao-controle.component';
+import { ModalComponent } from './shared/modal/modal.component';
 registerLocaleData(localePt);
 
 export const MY_DATE_FORMATS = {
@@ -73,7 +74,8 @@ export const MY_DATE_FORMATS = {
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' },
