@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -27,6 +28,8 @@ import { HeaderComponent } from './shared/header/header.component';
 // Para registrar o locale
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { ModalComponent } from './shared/modal/modal.component';
+import { BotaoControleComponent } from './shared/botao-controle/botao-controle.component';
 registerLocaleData(localePt);
 
 export const MY_DATE_FORMATS = {
@@ -52,7 +55,9 @@ export const MY_DATE_FORMATS = {
     HomeComponent,
     CardBuscaComponent,
     CardDepoimentoComponent,
-    FormBuscaComponent
+    FormBuscaComponent,
+    ModalComponent,
+    BotaoControleComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +72,8 @@ export const MY_DATE_FORMATS = {
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDialogModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' },
