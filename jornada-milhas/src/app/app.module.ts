@@ -34,6 +34,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BotaoControleComponent } from './shared/botao-controle/botao-controle.component';
 import { ModalComponent } from './shared/modal/modal.component';
 import { DropdownUfComponent } from './shared/form-busca/dropdown-uf/dropdown-uf.component';
+import { SeletorPassageiroComponent } from './shared/seletor-passageiro/seletor-passageiro.component';
 registerLocaleData(localePt);
 
 export const MY_DATE_FORMATS = {
@@ -62,7 +63,8 @@ export const MY_DATE_FORMATS = {
     FormBuscaComponent,
     ModalComponent,
     BotaoControleComponent,
-    DropdownUfComponent
+    DropdownUfComponent,
+    SeletorPassageiroComponent
   ],
   imports: [
     BrowserModule,
