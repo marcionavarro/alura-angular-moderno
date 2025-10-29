@@ -1,6 +1,7 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
@@ -32,6 +33,7 @@ import localePt from '@angular/common/locales/pt';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BotaoControleComponent } from './shared/botao-controle/botao-controle.component';
 import { ModalComponent } from './shared/modal/modal.component';
+import { DropdownUfComponent } from './shared/form-busca/dropdown-uf/dropdown-uf.component';
 registerLocaleData(localePt);
 
 export const MY_DATE_FORMATS = {
@@ -59,7 +61,8 @@ export const MY_DATE_FORMATS = {
     CardDepoimentoComponent,
     FormBuscaComponent,
     ModalComponent,
-    BotaoControleComponent
+    BotaoControleComponent,
+    DropdownUfComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +80,8 @@ export const MY_DATE_FORMATS = {
     MatNativeDateModule,
     MatDialogModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatAutocompleteModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' },
