@@ -1,5 +1,5 @@
 <app-card variant="secondary" class="form-busca">
-  <form [formGroup]="formBuscaService.formBusca">
+  <form [formGroup]="formBuscaService.formBusca" (ngSubmit)="buscar()">
     <h2>Passagens</h2>
     <div class="flex-container">
       <mat-button-toggle-group
@@ -47,7 +47,13 @@
       />
       <mat-form-field class="input-container" appearance="outline">
         <mat-label>Data de ida</mat-label>
-        <input matInput [matDatepicker]="ida" />
+        <input
+          matInput
+          [matDatepicker]="ida"
+          [(ngModel)]="dataIda"
+          [min]="dataMinima"
+          formControlName="dataIda"
+        />
         <mat-datepicker-toggle
           matIconSuffix
           [for]="ida"
@@ -56,8 +62,9 @@
       </mat-form-field>
       <mat-form-field class="input-container" appearance="outline">
         <mat-label>Data da volta</mat-label>
-        <input matInput [matDatepicker]="volta" />
+        <input matInput [matDatepicker]="volta" [min]="dataIda" formControlName="dataVolta" />
         <mat-datepicker-toggle
+          value="dataIda"
           matIconSuffix
           [for]="volta"
         ></mat-datepicker-toggle>

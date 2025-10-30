@@ -8,5 +8,13 @@ import { FormBuscaService } from 'src/app/core/services/form-busca.service';
 })
 export class FormBuscaComponent {
 
+  dataIda: Date | null = null;
+  dataVolta: Date | null = null;
+  dataMinima: Date = new Date();
+  
   constructor(public formBuscaService: FormBuscaService) { }
+
+  buscar() {
+    console.log(this.formBuscaService.formBusca.value);
+  }
 }

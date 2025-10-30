@@ -19,7 +19,9 @@ export class FormBuscaService {
       tipo: new FormControl("Economica"),
       adultos: new FormControl(1),
       criancas: new FormControl(0),
-      bebes: new FormControl(0)
+      bebes: new FormControl(0),
+      dataIda: new FormControl<Date | null>(null),
+      dataVolta: new FormControl<Date | null>(null),
     });
   }
 
@@ -41,7 +43,6 @@ export class FormBuscaService {
       descricao += `${descricao ? ', ' : ''} ${bebes} bebe${bebes > 1 ? 's' : ''}`;
     }
 
-
     return descricao;
   }
 
@@ -57,7 +58,6 @@ export class FormBuscaService {
     if (evento.selected) {
       this.formBusca.patchValue({ tipo });
     }
-    console.log("🚀 ~ FormBuscaService ~ alterarTipo ~ tipo:", tipo)
   }
 
   openDialog() {
