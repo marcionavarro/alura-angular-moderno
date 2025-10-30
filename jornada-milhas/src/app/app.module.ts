@@ -42,6 +42,8 @@ import { DropdownUfComponent } from './shared/dropdown-uf/dropdown-uf.component'
 import { ModalComponent } from './shared/modal/modal.component';
 import { SeletorPassageiroComponent } from './shared/seletor-passageiro/seletor-passageiro.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
+import { DepoimentosComponent } from './pages/home/depoimentos/depoimentos.component';
+import { PromocoesComponent } from './pages/home/promocoes/promocoes.component';
 registerLocaleData(localePt);
 
 export const MY_DATE_FORMATS = {
@@ -74,7 +76,9 @@ export const MY_DATE_FORMATS = {
     SeletorPassageiroComponent,
     LoginComponent,
     FormBaseComponent,
-    CadastroComponent
+    CadastroComponent,
+    DepoimentosComponent,
+    PromocoesComponent
   ],
   imports: [
     BrowserModule,

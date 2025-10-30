@@ -6,18 +6,9 @@
   <app-container>
     <app-form-busca></app-form-busca>
     <h2>Promoções</h2>
-    <div class="card-wrapper">
-      <app-card-busca
-        *ngFor="let item of promocoes"
-        [promocao]="item"
-      ></app-card-busca>
-    </div>
-    <h2>Depoimentos</h2>
-    <div class="card-wrapper">
-      <app-card-depoimento></app-card-depoimento>
-      <app-card-depoimento></app-card-depoimento>
-      <app-card-depoimento></app-card-depoimento>
-    </div>
+    <app-promocoes />
+    <h2 style="margin-top: 100px;">Depoimentos</h2>
+    <app-depoimentos />
   </app-container>
   <app-banner
     src="assets/imagens/banner-homepage-rodape.png"

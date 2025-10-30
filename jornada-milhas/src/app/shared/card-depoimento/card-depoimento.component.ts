@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Depoimento } from 'src/app/core/types/types';
 
 @Component({
   selector: 'app-card-depoimento',
@@ -6,6 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./card-depoimento.component.scss']
 })
 export class CardDepoimentoComponent {
-  depoimento: string = "A Jornada foi uma das melhores agências de viagens que eu já experimentei. O serviço ao cliente foi excepcional, e toda a equipe foi muito atenciosa e prestativa."
-  autoria: string = "Lauro Matos"
+  @Input() depoimento!: Depoimento;
 }
