@@ -5,13 +5,16 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
 import { MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -31,11 +34,14 @@ import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import localePt from '@angular/common/locales/pt';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BotaoControleComponent } from './shared/botao-controle/botao-controle.component';
-import { ModalComponent } from './shared/modal/modal.component';
-import { DropdownUfComponent } from './shared/form-busca/dropdown-uf/dropdown-uf.component';
-import { SeletorPassageiroComponent } from './shared/seletor-passageiro/seletor-passageiro.component';
 import { LoginComponent } from './pages/login/login.component';
+import { BotaoControleComponent } from './shared/botao-controle/botao-controle.component';
+import { FormBaseComponent } from './shared/form-base/form-base.component';
+
+import { DropdownUfComponent } from './shared/dropdown-uf/dropdown-uf.component';
+import { ModalComponent } from './shared/modal/modal.component';
+import { SeletorPassageiroComponent } from './shared/seletor-passageiro/seletor-passageiro.component';
+import { CadastroComponent } from './pages/cadastro/cadastro.component';
 registerLocaleData(localePt);
 
 export const MY_DATE_FORMATS = {
@@ -66,7 +72,9 @@ export const MY_DATE_FORMATS = {
     BotaoControleComponent,
     DropdownUfComponent,
     SeletorPassageiroComponent,
-    LoginComponent
+    LoginComponent,
+    FormBaseComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +93,10 @@ export const MY_DATE_FORMATS = {
     MatDialogModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatRadioModule,
+     MatDividerModule,
+    MatCheckboxModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' },

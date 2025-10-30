@@ -13,6 +13,7 @@ export class DropdownUfComponent implements OnInit {
 
   @Input() label: string = '';
   @Input() iconePrefixo: string = '';
+  @Input() placeholder: string = '';
   @Input() control!: FormControl;
 
   unidadesFederativas: UnidadeFederativa[] = [];
@@ -24,18 +25,23 @@ export class DropdownUfComponent implements OnInit {
   ngOnInit(): void {
     this.unidadeFederativaService.listar()
       .subscribe(res => this.unidadesFederativas = res)
-    
-      this.filteredOptions$ = this.control.valueChanges.pipe(
+
+    this.filteredOptions$ = this.control.valueChanges.pipe(
       startWith(''),
       map(value => this.filtrarUfs(value))
     )
   }
 
-  filtrarUfs(value: string): UnidadeFederativa[] {
-    const valorFiltrado = value?.toLowerCase();
+  filtrarUfs(value: string | UnidadeFederativa): UnidadeFederativa[] {
+    const nomeUf = typeof value === 'string' ? value : value?.nome;
+    const valorFiltrado = nomeUf?.toLowerCase();
     const result = this.unidadesFederativas.filter(
       estado => estado.nome.toLowerCase().includes(valorFiltrado)
     )
     return result
+  }
+
+  displayFn(estado: UnidadeFederativa): string {
+    return estado && estado.nome ? estado.nome : '';
   }
 }
