@@ -31,7 +31,7 @@ import { HeaderComponent } from './shared/header/header.component';
 
 // Para registrar o locale
 import { registerLocaleData } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import localePt from '@angular/common/locales/pt';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
@@ -45,6 +45,7 @@ import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { DepoimentosComponent } from './pages/home/depoimentos/depoimentos.component';
 import { PromocoesComponent } from './pages/home/promocoes/promocoes.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { AutenticacaoInterceptor } from './core/interceptors/autenticacao.interceptor';
 registerLocaleData(localePt);
 
 export const MY_DATE_FORMATS = {
@@ -101,10 +102,15 @@ export const MY_DATE_FORMATS = {
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatRadioModule,
-     MatDividerModule,
+    MatDividerModule,
     MatCheckboxModule
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AutenticacaoInterceptor,
+      multi: true
+    },
     { provide: LOCALE_ID, useValue: 'pt-BR' },
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
     { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS },

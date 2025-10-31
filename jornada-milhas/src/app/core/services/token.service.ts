@@ -21,6 +21,6 @@ export class TokenService {
   }
 
   possuiToken() {
-    return !this.retornarToken();
+    return !!this.retornarToken();
   }
 }
