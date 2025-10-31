@@ -33,3 +33,40 @@ export interface PessoaUsuaria {
 export interface AuthResponse {
     access_token: string;
 }
+
+export interface Resultado {
+    paginaAtual: number;
+    ultimaPagina: number;
+    total: number;
+    precoMin: number;
+    precoMax: number;
+    resultado: Passagem[];
+}
+
+export interface Passagem {
+    tipo: string;
+    precoIda: number;
+    precoVolta: number;
+    taxaEmbarque: number;
+    conexoes: number;
+    tempoVoo: number;
+    origem: UnidadeFederativa;
+    destino: UnidadeFederativa;
+    companhia: Companhia;
+    dataIda: Date;
+    dataVolta: Date;
+    total: number;
+    orcamento: Orcamento[];
+}
+
+export interface Companhia {
+    id: number;
+    nome: string
+}
+
+export interface Orcamento {
+    descricao: string;
+    preco: number;
+    taxaEmbarque: number;
+    total: number
+}

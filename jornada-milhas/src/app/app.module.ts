@@ -46,6 +46,7 @@ import { DepoimentosComponent } from './pages/home/depoimentos/depoimentos.compo
 import { PromocoesComponent } from './pages/home/promocoes/promocoes.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { AutenticacaoInterceptor } from './core/interceptors/autenticacao.interceptor';
+import { BuscaComponent } from './pages/busca/busca.component';
 registerLocaleData(localePt);
 
 export const MY_DATE_FORMATS = {
@@ -81,7 +82,8 @@ export const MY_DATE_FORMATS = {
     CadastroComponent,
     DepoimentosComponent,
     PromocoesComponent,
-    PerfilComponent
+    PerfilComponent,
+    BuscaComponent
   ],
   imports: [
     BrowserModule,
