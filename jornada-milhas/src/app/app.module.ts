@@ -44,6 +44,7 @@ import { SeletorPassageiroComponent } from './shared/seletor-passageiro/seletor-
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { DepoimentosComponent } from './pages/home/depoimentos/depoimentos.component';
 import { PromocoesComponent } from './pages/home/promocoes/promocoes.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 registerLocaleData(localePt);
 
 export const MY_DATE_FORMATS = {
@@ -78,7 +79,8 @@ export const MY_DATE_FORMATS = {
     FormBaseComponent,
     CadastroComponent,
     DepoimentosComponent,
-    PromocoesComponent
+    PromocoesComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
