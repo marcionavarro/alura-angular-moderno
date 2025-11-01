@@ -28,7 +28,10 @@
         </div>
       </mat-chip>
       <mat-chip (click)="formBuscaService.openDialog()">
-        <div class="inner"><mat-icon>check</mat-icon> Econômica</div>
+        <div class="inner">
+          <mat-icon>check</mat-icon>
+          {{ formBuscaService.obterControle("tipo").value }}
+        </div>
       </mat-chip>
     </div>
     <div class="flex-container">

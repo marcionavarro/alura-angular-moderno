@@ -22,11 +22,11 @@
       <p><strong>Categoria</strong></p>
       <mat-chip-listbox aria-label="Seleção de passagens">
         <mat-chip-option
-          value="Economica"
+          value="Econômica"
           [selected]="
-            formBuscaService.formBusca.get('tipo')?.value === 'Economica'
+            formBuscaService.formBusca.get('tipo')?.value === 'Econômica'
           "
-          (selectionChange)="formBuscaService.alterarTipo($event, 'Economica')"
+          (selectionChange)="formBuscaService.alterarTipo($event, 'Econômica')"
           >Econômica
         </mat-chip-option>
         <mat-chip-option

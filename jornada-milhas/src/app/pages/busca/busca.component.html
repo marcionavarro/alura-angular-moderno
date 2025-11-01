@@ -1,9 +1,14 @@
 <div class="busca-page">
   <app-banner src="assets/imagens/banner-busca.png" alt="Busca" />
   <app-container>
-    <app-form-busca />
+    <app-form-busca (realizarBusca)="busca($event)"/>
     <section class="conteudo">
-      Filtros, Cards deRecomendados e Cards de Passagens
+      <div class="passagens">
+        <app-passagem
+          *ngFor="let passagem of passagens"
+          [passagem]="passagem"
+        ></app-passagem>
+      </div>
     </section>
   </app-container>
 </div>

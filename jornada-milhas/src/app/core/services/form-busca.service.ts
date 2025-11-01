@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatChipSelectionChange } from '@angular/material/chips';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from 'src/app/shared/modal/modal.component';
+import { DadosBusca } from '../types/types';
 
 @Injectable({
   providedIn: 'root'
@@ -12,17 +13,21 @@ export class FormBuscaService {
   formBusca: FormGroup;
 
   constructor(private dialog: MatDialog) {
+    const somenteIda = new FormControl(false, [Validators.required]);
+    const dataVolta = new FormControl<Date | null>(null, [Validators.required]);
+
     this.formBusca = new FormGroup({
-      somenteIda: new FormControl(false),
-      origem: new FormControl(null),
-      destino: new FormControl(null),
-      tipo: new FormControl("Economica"),
+      origem: new FormControl(null, [Validators.required]),
+      destino: new FormControl(null, [Validators.required]),
+      tipo: new FormControl("Econômica"),
       adultos: new FormControl(1),
       criancas: new FormControl(0),
       bebes: new FormControl(0),
-      dataIda: new FormControl<Date | null>(null),
-      dataVolta: new FormControl<Date | null>(null),
+      dataIda: new FormControl(null, [Validators.required]),
+      somenteIda,
+      dataVolta
     });
+    this.somenteIdaValueChanges(somenteIda, dataVolta);
   }
 
   getDescricaoDePassageiros(): string {
@@ -46,12 +51,44 @@ export class FormBuscaService {
     return descricao;
   }
 
-  obterControle(nome: string): FormControl {
+  obterControle<T>(nome: string): FormControl {
     const control = this.formBusca.get(nome);
     if (!control) {
       throw new Error(`FormControl com o nome ${nome} não encontrado.`)
     }
-    return control as FormControl;
+    return control as FormControl<T>;
+  }
+
+  obterDadosDeBusca(): DadosBusca {
+    const rawDataIda = this.obterControle<Date>('dataIda').value;
+
+    // Evita erro caso o campo esteja vazio ou não seja Date
+    const dataIda = rawDataIda
+      ? new Date(rawDataIda).toISOString()
+      : null;
+
+    const rawDataVolta = this.obterControle<Date>('dataVolta').value;
+    const dataVolta = rawDataVolta
+      ? new Date(rawDataVolta).toISOString()
+      : null;
+
+    const origem = this.obterControle<any>('origem').value;
+    const destino = this.obterControle<any>('destino').value;
+
+    const dadosBusca: DadosBusca = {
+      pagina: 1,
+      porPagina: 20,
+      somenteIda: this.obterControle<boolean>('somenteIda').value,
+      origemId: origem ? origem.id : null,     
+      destinoId: destino ? destino.id : null,
+      tipo: this.obterControle<boolean>('tipo').value,
+      passageirosAdultos: this.obterControle<boolean>('adultos').value,
+      passageirosCriancas: this.obterControle<boolean>('criancas').value,
+      passageirosBebes: this.obterControle<boolean>('bebes').value,
+      dataIda,
+      dataVolta
+    }
+    return dadosBusca;
   }
 
   alterarTipo(evento: MatChipSelectionChange, tipo: string) {
@@ -64,5 +101,22 @@ export class FormBuscaService {
     this.dialog.open(ModalComponent, {
       width: '50%'
     });
+  }
+
+  get formEstaValido() {
+    return this.formBusca.valid;
+  }
+
+  private somenteIdaValueChanges(somenteIda: FormControl, dataVolta: FormControl) {
+    somenteIda.valueChanges.subscribe(somenteIda => {
+      if (somenteIda) {
+        dataVolta.disable();
+        dataVolta.setValidators(null);
+      } else {
+        dataVolta.enable();
+        dataVolta.setValidators([Validators.required]);
+      }
+      dataVolta.updateValueAndValidity();
+    })
   }
 }

@@ -47,6 +47,7 @@ import { PromocoesComponent } from './pages/home/promocoes/promocoes.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { AutenticacaoInterceptor } from './core/interceptors/autenticacao.interceptor';
 import { BuscaComponent } from './pages/busca/busca.component';
+import { PassagemComponent } from './shared/passagem/passagem.component';
 registerLocaleData(localePt);
 
 export const MY_DATE_FORMATS = {
@@ -83,7 +84,8 @@ export const MY_DATE_FORMATS = {
     DepoimentosComponent,
     PromocoesComponent,
     PerfilComponent,
-    BuscaComponent
+    BuscaComponent,
+    PassagemComponent
   ],
   imports: [
     BrowserModule,
