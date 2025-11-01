@@ -25,7 +25,8 @@ export class FormBuscaService {
       bebes: new FormControl(0),
       dataIda: new FormControl(null, [Validators.required]),
       somenteIda,
-      dataVolta
+      dataVolta,
+      conexoes: new FormControl(null)
     });
     this.somenteIdaValueChanges(somenteIda, dataVolta);
   }
@@ -60,34 +61,35 @@ export class FormBuscaService {
   }
 
   obterDadosDeBusca(): DadosBusca {
-    const rawDataIda = this.obterControle<Date>('dataIda').value;
-
-    // Evita erro caso o campo esteja vazio ou não seja Date
-    const dataIda = rawDataIda
-      ? new Date(rawDataIda).toISOString()
-      : null;
-
-    const rawDataVolta = this.obterControle<Date>('dataVolta').value;
-    const dataVolta = rawDataVolta
-      ? new Date(rawDataVolta).toISOString()
-      : null;
-
-    const origem = this.obterControle<any>('origem').value;
-    const destino = this.obterControle<any>('destino').value;
+    const somenteIda = this.obterControleNameValue<boolean>('somenteIda');
+    const passageirosAdultos = this.obterControleNameValue<boolean>('adultos');
+    const passageirosCriancas = this.obterControleNameValue<boolean>('criancas');
+    const tipo = this.obterControleNameValue<boolean>('tipo');
+    const passageirosBebes = this.obterControleNameValue<boolean>('bebes');
+    const origemId = this.obterControleNameValue<any>('origem').id;
+    const destinoId = this.obterControleNameValue<any>('destino').id;
+    const dataIda = new Date(this.obterControleNameValue<Date>('dataIda')).toISOString() || null;
+    const dataVolta = this.obterControleNameValue<Date>('dataVolta') && new Date(this.obterControleNameValue<Date>('dataVolta')).toISOString() || null;
 
     const dadosBusca: DadosBusca = {
       pagina: 1,
       porPagina: 20,
-      somenteIda: this.obterControle<boolean>('somenteIda').value,
-      origemId: origem ? origem.id : null,     
-      destinoId: destino ? destino.id : null,
-      tipo: this.obterControle<boolean>('tipo').value,
-      passageirosAdultos: this.obterControle<boolean>('adultos').value,
-      passageirosCriancas: this.obterControle<boolean>('criancas').value,
-      passageirosBebes: this.obterControle<boolean>('bebes').value,
+      somenteIda,
+      passageirosAdultos,
+      passageirosCriancas,
+      passageirosBebes,
+      tipo,
+      origemId,
+      destinoId,
       dataIda,
       dataVolta
     }
+
+    const conexoesControl = this.obterControleNameValue('conexoes');
+    if (conexoesControl) {
+      dadosBusca.conexoes = conexoesControl;
+    }
+    console.log("🚀 ~ FormBuscaService ~ obterDadosDeBusca ~ dadosBusca:", dadosBusca)
     return dadosBusca;
   }
 
@@ -118,5 +120,9 @@ export class FormBuscaService {
       }
       dataVolta.updateValueAndValidity();
     })
+  }
+
+  private obterControleNameValue<T>(name: string) {
+    return this.obterControle<T>(name).value || null;
   }
 }

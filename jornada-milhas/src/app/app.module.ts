@@ -38,16 +38,22 @@ import { LoginComponent } from './pages/login/login.component';
 import { BotaoControleComponent } from './shared/botao-controle/botao-controle.component';
 import { FormBaseComponent } from './shared/form-base/form-base.component';
 
-import { DropdownUfComponent } from './shared/dropdown-uf/dropdown-uf.component';
-import { ModalComponent } from './shared/modal/modal.component';
-import { SeletorPassageiroComponent } from './shared/seletor-passageiro/seletor-passageiro.component';
+import { MatSliderModule } from '@angular/material/slider';
+import { AutenticacaoInterceptor } from './core/interceptors/autenticacao.interceptor';
+import { BuscaComponent } from './pages/busca/busca.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { DepoimentosComponent } from './pages/home/depoimentos/depoimentos.component';
 import { PromocoesComponent } from './pages/home/promocoes/promocoes.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
-import { AutenticacaoInterceptor } from './core/interceptors/autenticacao.interceptor';
-import { BuscaComponent } from './pages/busca/busca.component';
+import { DropdownUfComponent } from './shared/dropdown-uf/dropdown-uf.component';
+import { CompanhiasComponent } from './shared/form-busca/filtros-complementares/companhias/companhias.component';
+import { FiltrosComplementaresComponent } from './shared/form-busca/filtros-complementares/filtros-complementares.component';
+import { LabelComponent } from './shared/form-busca/filtros-complementares/label/label.component';
+import { ParadasComponent } from './shared/form-busca/filtros-complementares/paradas/paradas.component';
+import { PrecosComponent } from './shared/form-busca/filtros-complementares/precos/precos.component';
+import { ModalComponent } from './shared/modal/modal.component';
 import { PassagemComponent } from './shared/passagem/passagem.component';
+import { SeletorPassageiroComponent } from './shared/seletor-passageiro/seletor-passageiro.component';
 registerLocaleData(localePt);
 
 export const MY_DATE_FORMATS = {
@@ -85,7 +91,12 @@ export const MY_DATE_FORMATS = {
     PromocoesComponent,
     PerfilComponent,
     BuscaComponent,
-    PassagemComponent
+    PassagemComponent,
+    FiltrosComplementaresComponent,
+    PrecosComponent,
+    ParadasComponent,
+    LabelComponent,
+    CompanhiasComponent
   ],
   imports: [
     BrowserModule,
@@ -107,7 +118,8 @@ export const MY_DATE_FORMATS = {
     MatAutocompleteModule,
     MatRadioModule,
     MatDividerModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSliderModule
   ],
   providers: [
     {
