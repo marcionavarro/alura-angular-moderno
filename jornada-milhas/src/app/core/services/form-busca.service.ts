@@ -26,7 +26,10 @@ export class FormBuscaService {
       dataIda: new FormControl(null, [Validators.required]),
       somenteIda,
       dataVolta,
-      conexoes: new FormControl(null)
+      conexoes: new FormControl(null),
+      companhias: new FormControl(null),
+      precoMin: new FormControl(null),
+      precoMax: new FormControl(null),
     });
     this.somenteIdaValueChanges(somenteIda, dataVolta);
   }
@@ -50,6 +53,16 @@ export class FormBuscaService {
     }
 
     return descricao;
+  }
+
+  trocarOrigemDestino(): void {
+    const origem = this.formBusca.get('origem')?.value;
+    const destino = this.formBusca.get('destino')?.value;
+
+    this.formBusca.patchValue({
+      origem: destino,
+      destino: origem
+    });
   }
 
   obterControle<T>(nome: string): FormControl {
@@ -89,7 +102,19 @@ export class FormBuscaService {
     if (conexoesControl) {
       dadosBusca.conexoes = conexoesControl;
     }
-    console.log("🚀 ~ FormBuscaService ~ obterDadosDeBusca ~ dadosBusca:", dadosBusca)
+    const companhiasControl = this.obterControle<number[]>('companhias');
+    if (companhiasControl.value) {
+      dadosBusca.companhiasId = companhiasControl.value
+    }
+    const precoMinControl = this.obterControle<number[]>('precoMin');
+    if (precoMinControl.value) {
+      dadosBusca.precoMin = precoMinControl.value
+    }
+    const precoMaxControl = this.obterControle<number[]>('precoMax');
+    if (precoMaxControl.value) {
+      dadosBusca.precoMax = precoMaxControl.value
+    }
+
     return dadosBusca;
   }
 
@@ -97,6 +122,10 @@ export class FormBuscaService {
     if (evento.selected) {
       this.formBusca.patchValue({ tipo });
     }
+  }
+
+  dataVoltaMinima(dataMinVolta: Date) {
+    console.log("🚀 ~ FormBuscaService ~ dataVoltaMinima ~ dataMinVolta:", dataMinVolta)
   }
 
   openDialog() {

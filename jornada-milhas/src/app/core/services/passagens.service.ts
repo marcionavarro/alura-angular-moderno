@@ -1,18 +1,34 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Resultado } from '../types/types';
-import { Observable } from 'rxjs';
+import { DadosBusca, Resultado } from '../types/types';
+import { Observable, take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PassagensService {
   private apiUrl = environment.apiUrl;
+  precoMin: number = 0;
+  precoMax: number = 0;
 
   constructor(private http: HttpClient) { }
 
-  getPassagens(params: any): Observable<Resultado> {
-    return this.http.get<Resultado>(`${this.apiUrl}/passagem/search`, { params })
+  getPassagens(params: DadosBusca): Observable<Resultado> {
+    const obs = this.http.get<Resultado>(`${this.apiUrl}/passagem/search?${this.converterParametrosParaString(params)}`);
+    obs.pipe(take(1)).subscribe(res => {
+      this.precoMin = res.precoMin,
+        this.precoMax = res.precoMax
+    })
+    return obs;
+  }
+
+  converterParametrosParaString(busca: DadosBusca) {
+    const query = Object.entries(busca)
+      .map(([key, value]) => {
+        if (!value) return;
+        return `${key}=${value}`
+      }).join('&');
+    return query;
   }
 }

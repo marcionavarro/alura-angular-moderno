@@ -43,7 +43,7 @@
           [control]="formBuscaService.obterControle('origem')"
         />
       </div>
-      <button mat-icon-button>
+      <button mat-icon-button (click)="formBuscaService.trocarOrigemDestino()">
         <mat-icon>sync_alt</mat-icon>
       </button>
       <div class="drop-container">
@@ -60,8 +60,7 @@
         <input
           matInput
           [matDatepicker]="ida"
-          [(ngModel)]="dataIda"
-          [min]="dataMinima"
+          [min]="dataMinIda"
           formControlName="dataIda"
         />
         <mat-datepicker-toggle
@@ -75,11 +74,10 @@
         <input
           matInput
           [matDatepicker]="volta"
-          [min]="dataIda"
+          [min]="dataMinVolta"
           formControlName="dataVolta"
         />
         <mat-datepicker-toggle
-          value="dataIda"
           matIconSuffix
           [for]="volta"
         ></mat-datepicker-toggle>

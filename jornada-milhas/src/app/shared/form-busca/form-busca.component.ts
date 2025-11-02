@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuscaService } from 'src/app/core/services/form-busca.service';
 
 @Component({
@@ -6,14 +6,19 @@ import { FormBuscaService } from 'src/app/core/services/form-busca.service';
   templateUrl: './form-busca.component.html',
   styleUrls: ['./form-busca.component.scss'],
 })
-export class FormBuscaComponent {
+export class FormBuscaComponent implements OnInit {
   dataIda: Date | null = null;
   dataVolta: Date | null = null;
-  dataMinima: Date = new Date();
+  dataMinIda: Date = new Date();
+  dataMinVolta?: Date = new Date();
 
   @Output() realizarBusca = new EventEmitter();
 
   constructor(public formBuscaService: FormBuscaService) { }
+
+  ngOnInit(): void {
+    this.dataMinimaVolta();
+  }
 
   buscar() {
     if (this.formBuscaService.formEstaValido) {
@@ -22,5 +27,20 @@ export class FormBuscaComponent {
     } else {
       alert('Preencha os campos ')
     }
+  }
+
+  private dataMinimaVolta() {
+    this.formBuscaService.formBusca.get('dataIda')?.valueChanges.subscribe((novaDataIda: Date) => {
+      if (novaDataIda) {
+        const dataVolta = this.formBuscaService.formBusca.get('dataVolta')?.value;
+        this.dataMinVolta = novaDataIda;
+
+        if (dataVolta && dataVolta < novaDataIda) {
+          this.formBuscaService.formBusca.get('dataVolta')?.setValue(null);
+        }
+      } else {
+        this.dataMinVolta = undefined;
+      }
+    })
   }
 }
