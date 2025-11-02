@@ -54,6 +54,7 @@ import { PrecosComponent } from './shared/form-busca/filtros-complementares/prec
 import { ModalComponent } from './shared/modal/modal.component';
 import { PassagemComponent } from './shared/passagem/passagem.component';
 import { SeletorPassageiroComponent } from './shared/seletor-passageiro/seletor-passageiro.component';
+import { CardDestaqueComponent } from './shared/card-destaque/card-destaque.component';
 registerLocaleData(localePt);
 
 export const MY_DATE_FORMATS = {
@@ -96,7 +97,8 @@ export const MY_DATE_FORMATS = {
     PrecosComponent,
     ParadasComponent,
     LabelComponent,
-    CompanhiasComponent
+    CompanhiasComponent,
+    CardDestaqueComponent
   ],
   imports: [
     BrowserModule,

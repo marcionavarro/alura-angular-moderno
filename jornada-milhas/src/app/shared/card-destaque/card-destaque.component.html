@@ -1,0 +1,28 @@
+<ul
+  class="destaque"
+  *ngIf="passagemDeMenorPreco || passagemDeMenorTempo || passagemRecomendada"
+>
+  <div class="destque-card">
+    <li class="titulo">Menor Preço</li>
+    <li class="preco">
+      {{ passagemDeMenorPreco?.total | currency : "BRL" }}
+    </li>
+    <li class="tempo">{{ passagemDeMenorPreco?.tempoVoo }}h de viagem</li>
+  </div>
+
+  <div class="destque-card">
+    <li class="titulo">Recomendado</li>
+    <li class="preco">
+      {{ passagemRecomendada?.total | currency : "BRL" }}
+    </li>
+    <li class="tempo">{{ passagemRecomendada?.tempoVoo }}h de viagem</li>
+  </div>
+
+  <div class="destque-card">
+    <li class="titulo">Menor Tempo</li>
+    <li class="preco">
+      {{ passagemDeMenorTempo?.total | currency : "BRL" }}
+    </li>
+    <li class="tempo">{{ passagemDeMenorTempo?.tempoVoo }}h de viagem</li>
+  </div>
+</ul>

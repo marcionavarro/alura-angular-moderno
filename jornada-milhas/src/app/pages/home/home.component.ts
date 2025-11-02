@@ -19,7 +19,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.servicoPromocao.listar()
-      .subscribe(res => this.promocoes = res);
+      .subscribe(res => {
+        console.log("🚀 ~ HomeComponent ~ ngOnInit ~ res:", res)
+        this.promocoes = res
+      });
   }
 
   navegarParaBusca(event: any) {

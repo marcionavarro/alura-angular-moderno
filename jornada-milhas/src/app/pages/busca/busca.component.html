@@ -7,10 +7,14 @@
         <app-filtros-complementares (realizarBusca)="busca($event)" />
       </aside>
       <div class="passagens">
+        <div class="destque-card">
+          <app-card-destaque />
+        </div>
+
         <app-passagem
           *ngFor="let passagem of passagens"
           [passagem]="passagem"
-        ></app-passagem>
+        />
       </div>
     </section>
   </app-container>

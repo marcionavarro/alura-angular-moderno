@@ -32,6 +32,7 @@ export class BuscaComponent implements OnInit {
     this.passagensService.getPassagens(busca)
       .pipe(take(1))
       .subscribe(res => {
+        console.log("🚀 ~ BuscaComponent ~ ngOnInit ~ res:", res)
         this.passagens = res.resultado,
           this.formBuscaService.formBusca.patchValue({
             precoMin: res.precoMin,

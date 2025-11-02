@@ -14,8 +14,9 @@ export class PassagensService {
 
   constructor(private http: HttpClient) { }
 
-  getPassagens(params: DadosBusca): Observable<Resultado> {
-    const obs = this.http.get<Resultado>(`${this.apiUrl}/passagem/search?${this.converterParametrosParaString(params)}`);
+  getPassagens(search: DadosBusca): Observable<Resultado> {
+    const params = this.converterParametrosParaString(search);
+    const obs = this.http.get<Resultado>(`${this.apiUrl}/passagem/search?${params}`);
     obs.pipe(take(1)).subscribe(res => {
       this.precoMin = res.precoMin,
         this.precoMax = res.precoMax
