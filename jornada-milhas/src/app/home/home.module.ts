@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { MaterialModule } from "../core/material/material.module";
 import { SharedModule } from "../shared/shared.module";
 import { DepoimentosComponent } from "./depoimentos/depoimentos.component";
+import { HomeRoutingModule } from "./home-routing.module";
 import { HomeComponent } from "./home.component";
 import { PromocoesComponent } from "./promocoes/promocoes.component";
 
@@ -14,6 +15,7 @@ import { PromocoesComponent } from "./promocoes/promocoes.component";
     ],
     imports: [
         CommonModule,
+        HomeRoutingModule,
         MaterialModule,
         SharedModule
     ],

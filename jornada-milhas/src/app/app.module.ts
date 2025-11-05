@@ -14,12 +14,13 @@ import localePt from '@angular/common/locales/pt';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
-import { AutenticacaoModule } from './autenticacao/autenticacao.module';
-import { MaterialModule } from './core/material/material.module';
-import { SharedModule } from './shared/shared.module';
-import { HomeModule } from './home/home.module';
 import { AutenticacaoInterceptor } from './autenticacao/autenticacao.interceptor';
 import { BuscaModule } from './busca/busca.module';
+import { MaterialModule } from './core/material/material.module';
+import { HomeModule } from './home/home.module';
+import { SharedModule } from './shared/shared.module';
+import { ErroModule } from './core/erro/erro.module';
+import { BuscaRoutingModule } from './busca/busca-routing.module';
 registerLocaleData(localePt);
 
 export const MY_DATE_FORMATS = {
@@ -39,11 +40,11 @@ export const MY_DATE_FORMATS = {
     AppComponent
   ],
   imports: [
-    AutenticacaoModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
     BuscaModule,
+    ErroModule,
     HomeModule,
     HttpClientModule,
     MaterialModule,

@@ -15,6 +15,8 @@ import { ModalComponent } from './modal/modal.component';
 import { SeletorPassageiroComponent } from './seletor-passageiro/seletor-passageiro.component';
 import { MaterialModule } from '../core/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { ErroModule } from '../core/erro/erro.module';
 
 
 
@@ -38,6 +40,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
+    RouterModule
   ],
   exports: [
     BannerComponent,

@@ -8,16 +8,16 @@
       <button mat-button>Vender milhas</button>
       <button mat-button>Sobre</button>
       <ng-container *ngIf="user$ | async as pessoaUsuaria; else login">
-        <a routerLink="/perfil">
+        <a routerLink="/auth/perfil">
           <img src="assets/icones/user.png" alt="Icone da pessoa usuária" />
         </a>
         <button mat-stroked-button (click)="logout()">SAIR</button>
       </ng-container>
       <ng-template #login>
-        <button mat-raised-button color="primary" routerLink="/cadastro">
+        <button mat-raised-button color="primary" routerLink="auth/cadastro">
           CADASTRE-SE
         </button>
-        <button mat-stroked-button routerLink="/login">LOGIN</button>
+        <button mat-stroked-button routerLink="auth/login">LOGIN</button>
       </ng-template>
     </div>
   </mat-toolbar>
