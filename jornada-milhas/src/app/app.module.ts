@@ -21,6 +21,7 @@ import { HomeModule } from './home/home.module';
 import { SharedModule } from './shared/shared.module';
 import { ErroModule } from './core/erro/erro.module';
 import { BuscaRoutingModule } from './busca/busca-routing.module';
+import { ErrosInterceptor } from './core/erro/erros.interceptor';
 registerLocaleData(localePt);
 
 export const MY_DATE_FORMATS = {
@@ -53,9 +54,10 @@ export const MY_DATE_FORMATS = {
   ],
   providers: [
     {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AutenticacaoInterceptor,
-      multi: true
+      provide: HTTP_INTERCEPTORS, useClass: AutenticacaoInterceptor, multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS, useClass: ErrosInterceptor, multi: true
     },
     { provide: LOCALE_ID, useValue: 'pt-BR' },
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },

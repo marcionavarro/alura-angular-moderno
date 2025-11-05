@@ -14,28 +14,30 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 
 @NgModule({
   exports: [
-    MatToolbarModule,
-    MatButtonModule,
-    MatCardModule,
-    MatButtonToggleModule,
-    MatIconModule,
-    MatChipsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatDialogModule,
     MatAutocompleteModule,
-    MatRadioModule,
-    MatDividerModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
     MatCheckboxModule,
-    MatSliderModule
+    MatChipsModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatRadioModule,
+    MatSliderModule,
+    MatSnackBarModule,
+    MatToolbarModule,
   ]
 })
 export class MaterialModule { }
