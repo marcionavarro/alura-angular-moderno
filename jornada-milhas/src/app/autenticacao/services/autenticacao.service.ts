@@ -23,8 +23,8 @@ export class AutenticacaoService {
     ).pipe(
       tap(response => {
         const authToken = response.body?.access_token || '';
-        this.userService.salvarToken(authToken)
+        this.userService.salvarToken(authToken);
       })
-    )
+    );
   }
 }

@@ -25,7 +25,7 @@ export class FormBuscaComponent implements OnInit {
       const formBuscaValue = this.formBuscaService.obterDadosDeBusca();
       this.realizarBusca.emit(formBuscaValue);
     } else {
-      alert('Preencha os campos ')
+      alert('Preencha os campos ');
     }
   }
 
@@ -41,6 +41,6 @@ export class FormBuscaComponent implements OnInit {
       } else {
         this.dataMinVolta = undefined;
       }
-    })
+    });
   }
 }

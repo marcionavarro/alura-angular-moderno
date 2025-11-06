@@ -68,7 +68,7 @@ export class FormBuscaService {
   obterControle<T>(nome: string): FormControl {
     const control = this.formBusca.get(nome);
     if (!control) {
-      throw new Error(`FormControl com o nome ${nome} não encontrado.`)
+      throw new Error(`FormControl com o nome ${nome} não encontrado.`);
     }
     return control as FormControl<T>;
   }
@@ -79,8 +79,8 @@ export class FormBuscaService {
     const passageirosCriancas = this.obterControleNameValue<boolean>('criancas');
     const tipo = this.obterControleNameValue<boolean>('tipo');
     const passageirosBebes = this.obterControleNameValue<boolean>('bebes');
-    const origemId = this.obterControleNameValue<any>('origem').id;
-    const destinoId = this.obterControleNameValue<any>('destino').id;
+    const origemId = this.obterControleNameValue<number>('origem').id;
+    const destinoId = this.obterControleNameValue<number>('destino').id;
     const dataIda = new Date(this.obterControleNameValue<Date>('dataIda')).toISOString() || null;
     const dataVolta = this.obterControleNameValue<Date>('dataVolta') && new Date(this.obterControleNameValue<Date>('dataVolta')).toISOString() || null;
 
@@ -96,7 +96,7 @@ export class FormBuscaService {
       destinoId,
       dataIda,
       dataVolta
-    }
+    };
 
     const conexoesControl = this.obterControleNameValue('conexoes');
     if (conexoesControl) {
@@ -104,15 +104,15 @@ export class FormBuscaService {
     }
     const companhiasControl = this.obterControle<number[]>('companhias');
     if (companhiasControl.value) {
-      dadosBusca.companhiasId = companhiasControl.value
+      dadosBusca.companhiasId = companhiasControl.value;
     }
     const precoMinControl = this.obterControle<number[]>('precoMin');
     if (precoMinControl.value) {
-      dadosBusca.precoMin = precoMinControl.value
+      dadosBusca.precoMin = precoMinControl.value;
     }
     const precoMaxControl = this.obterControle<number[]>('precoMax');
     if (precoMaxControl.value) {
-      dadosBusca.precoMax = precoMaxControl.value
+      dadosBusca.precoMax = precoMaxControl.value;
     }
 
     return dadosBusca;
@@ -125,7 +125,7 @@ export class FormBuscaService {
   }
 
   dataVoltaMinima(dataMinVolta: Date) {
-    console.log("🚀 ~ FormBuscaService ~ dataVoltaMinima ~ dataMinVolta:", dataMinVolta)
+    console.log("🚀 ~ FormBuscaService ~ dataVoltaMinima ~ dataMinVolta:", dataMinVolta);
   }
 
   openDialog() {
@@ -148,7 +148,7 @@ export class FormBuscaService {
         dataVolta.setValidators([Validators.required]);
       }
       dataVolta.updateValueAndValidity();
-    })
+    });
   }
 
   private obterControleNameValue<T>(name: string) {

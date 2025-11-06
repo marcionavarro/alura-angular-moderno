@@ -7,10 +7,10 @@ export class FormValidations {
             const otherFieldValue = control.root.get(otherField)?.value;
 
             if (fieldValue !== otherFieldValue) {
-                return { equalTo: true }
+                return { equalTo: true };
             }
 
-            return null
-        }
+            return null;
+        };
     }
 }

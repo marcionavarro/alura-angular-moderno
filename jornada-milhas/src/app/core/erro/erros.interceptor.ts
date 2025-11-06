@@ -23,7 +23,7 @@ export class ErrosInterceptor implements HttpInterceptor {
         let errorMessage = 'Ocorreu um erro desconhecido';
 
         if (error.error instanceof ErrorEvent) {
-          errorMessage = `Erro do cliente: ${error.error.message};`
+          errorMessage = `Erro do cliente: ${error.error.message};`;
         } else if (error.status === 404) {
           errorMessage = 'Recurso não encontrado';
         } else if (error.status === 500) {
@@ -34,7 +34,7 @@ export class ErrosInterceptor implements HttpInterceptor {
 
         this.mensagemService.openSnackBar(errorMessage);
 
-        return throwError(() => new Error('Ops, ocorreu um erro!'))
+        return throwError(() => new Error('Ops, ocorreu um erro!'));
       })
     );
   }

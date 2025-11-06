@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Promocao } from 'src/app/core/types/types';
@@ -20,13 +21,14 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.servicoPromocao.listar()
       .subscribe(res => {
-        console.log("🚀 ~ HomeComponent ~ ngOnInit ~ res:", res)
-        this.promocoes = res
+        console.log("🚀 ~ HomeComponent ~ ngOnInit ~ res:", res);
+        this.promocoes = res;
       });
   }
 
-  navegarParaBusca(event: any) {
-    this.router.navigate(['busca'])
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  navegarParaBusca(ev: any) {
+    this.router.navigate(['busca']);
   }
 
 }

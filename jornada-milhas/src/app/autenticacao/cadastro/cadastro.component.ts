@@ -20,16 +20,16 @@ export class CadastroComponent {
 
   cadastrar() {
     const formCadastro = this.formularioService.getCadastro();
-    console.log("🚀 ~ CadastroComponent ~ cadastrar ~ formCadastro:", formCadastro)
+    console.log("🚀 ~ CadastroComponent ~ cadastrar ~ formCadastro:", formCadastro);
     if (formCadastro?.valid) {
       const novoCadastro = formCadastro.getRawValue() as PessoaUsuaria;
       this.cadastroService.cadastrar(novoCadastro).subscribe({
         next: (value) => {
           console.log('Cadastro realizado com sucesso!', value);
-          this.router.navigate(['/login'])
+          this.router.navigate(['/login']);
         },
         error: (err) => console.log('Erro ao cadastrar: ', err),
-      })
+      });
     }
   }
 }

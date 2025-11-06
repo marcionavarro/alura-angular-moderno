@@ -8,13 +8,13 @@
         <hr />
         <div class="origem-destino">
           <div class="grupo">
-            <label>Origem</label>
+            <label for="origem">Origem</label>
             <p class="box">
               {{ passagem.origem.nome }} ({{ passagem.origem.sigla }})
             </p>
           </div>
           <div class="grupo">
-            <label>Destino</label>
+            <label for="destino">Destino</label>
             <p class="box">
               {{ passagem.destino.nome }} ({{ passagem.destino.sigla }})
             </p>
@@ -23,13 +23,13 @@
         <hr />
         <div class="datas">
           <div class="grupo">
-            <label>Ida</label>
+            <label for="ida">Ida</label>
             <p class="box">
               {{ passagem.dataIda | date : "dd/MM" }}
             </p>
           </div>
           <div class="grupo" *ngIf="passagem.dataVolta">
-            <label>Volta</label>
+            <label for="volta">Volta</label>
             <p class="box">
               {{ passagem.dataVolta | date : "dd/MM" }}
             </p>

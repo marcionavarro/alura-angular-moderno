@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class UnidadeFederativaService {
 
   private apiUrl: string = environment.apiUrl;
-  private cache$?: Observable<UnidadeFederativa[]>
+  private cache$?: Observable<UnidadeFederativa[]>;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -25,6 +25,6 @@ export class UnidadeFederativaService {
   }
 
   private requestEstados(): Observable<UnidadeFederativa[]> {
-    return this.httpClient.get<UnidadeFederativa[]>(`${this.apiUrl}/estados`)
+    return this.httpClient.get<UnidadeFederativa[]>(`${this.apiUrl}/estados`);
   }
 }

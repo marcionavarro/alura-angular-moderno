@@ -14,14 +14,14 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./perfil.component.scss']
 })
 export class PerfilComponent implements OnInit {
-  titulo: string = 'Olá ';
-  textoBotao: string = 'ATUALIZAR';
-  perfilComponent: boolean = true;
+  titulo = 'Olá ';
+  textoBotao = 'ATUALIZAR';
+  perfilComponent = true;
 
-  token: string = '';
-  nome: string = '';
+  token = '';
+  nome = '';
   cadastro!: PessoaUsuaria;
-  form!: FormGroup<any> | null;
+  form!: FormGroup | null;
 
   constructor(
     private tokenService: TokenService,
@@ -66,15 +66,15 @@ export class PerfilComponent implements OnInit {
       genero: this.form?.value.genero,
       cidade: this.form?.value.cidade,
       estado: this.form?.value.estado
-    }
+    };
     this.cadastroService.editarCadastro(dadosAtualizados)
       .subscribe({
         next: () => {
           alert('Cadastro editado com sucesso!');
-          this.router.navigate(['/perfil'])
+          this.router.navigate(['/perfil']);
         },
         error: (err) => console.log("🚀 ~ PerfilComponent ~ atualizar ~ err:", err)
-      })
+      });
   }
 
   deslogar() {

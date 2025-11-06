@@ -6,22 +6,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-
 // Para registrar o locale
 import { registerLocaleData } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import localePt from '@angular/common/locales/pt';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
 import { AutenticacaoInterceptor } from './autenticacao/autenticacao.interceptor';
 import { BuscaModule } from './busca/busca.module';
+import { ErroModule } from './core/erro/erro.module';
+import { ErrosInterceptor } from './core/erro/erros.interceptor';
 import { MaterialModule } from './core/material/material.module';
 import { HomeModule } from './home/home.module';
 import { SharedModule } from './shared/shared.module';
-import { ErroModule } from './core/erro/erro.module';
-import { BuscaRoutingModule } from './busca/busca-routing.module';
-import { ErrosInterceptor } from './core/erro/erros.interceptor';
 registerLocaleData(localePt);
 
 export const MY_DATE_FORMATS = {

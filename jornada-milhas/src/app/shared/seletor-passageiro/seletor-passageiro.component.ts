@@ -15,24 +15,24 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class SeletorPassageiroComponent implements ControlValueAccessor {
 
-  @Input() titulo: string = '';
-  @Input() subtitulo: string = '';
+  @Input() titulo = '';
+  @Input() subtitulo = '';
 
-  value: number = 0;
-  onChange = (val: number) => { };
-  onTouch = () => { };
+  value = 0;
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onChange: (val: number)=> void = () => { };
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onTouch: ()=> void = () => { };
 
-  writeValue(val: any): void {
-    this.value = val
+  writeValue(val: number): void {
+    this.value = val;
   }
-  registerOnChange(fn: any): void {
+  registerOnChange(fn: (val: number)=> void): void {
     this.onChange = fn;
   }
-  registerOnTouched(fn: any): void {
+  registerOnTouched(fn: ()=> void): void {
     this.onTouch = fn;
   }
-
-  setDisabledState?(isDisabled: boolean): void { }
 
   incrementar() {
     this.value += 1;

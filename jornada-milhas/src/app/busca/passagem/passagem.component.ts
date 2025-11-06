@@ -11,8 +11,8 @@ export class PassagemComponent {
 
   get textoIdaVolta() {
     if (!this.passagem.dataVolta) {
-      return "Somente ida"
+      return "Somente ida";
     }
-    return "Ida e volta"
+    return "Ida e volta";
   }
 }

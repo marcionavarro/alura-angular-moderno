@@ -5,9 +5,6 @@ const KEY = 'token';
   providedIn: 'root'
 })
 export class TokenService {
-
-  constructor() { }
-
   salvarToken(token: string) {
     return localStorage.setItem(KEY, token);
   }

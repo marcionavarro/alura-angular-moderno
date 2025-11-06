@@ -7,7 +7,7 @@ const routes: Routes = [
         path: 'pagina-nao-encontrada',
         component: PaginaNaoEncontradaComponent
     }
-]
+];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
