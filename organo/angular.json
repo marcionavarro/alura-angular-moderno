@@ -72,7 +72,7 @@
           }
         },
         "test": {
-          "builder": "@angular-builders/jest:run",
+          "builder": "",
           "options": {
             "tsConfig": "tsconfig.spec.json",
             "assets": [
