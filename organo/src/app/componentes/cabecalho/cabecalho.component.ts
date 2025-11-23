@@ -4,8 +4,16 @@ import { Component, Input } from '@angular/core';
   selector: 'app-cabecalho',
   standalone: true,
   imports: [],
-  templateUrl: './cabecalho.component.html',
-  styleUrl: './cabecalho.component.css'
+  template: `
+<header class="banner">
+  <img [src]="src" [alt]="alt" />
+</header>
+  `,
+  styles: [`
+.banner img {
+  width: 100%;
+}
+  `]
 })
 export class CabecalhoComponent {
   @Input() src = '';

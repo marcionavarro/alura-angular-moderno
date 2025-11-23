@@ -4,8 +4,20 @@ import { Component, Input } from '@angular/core';
   selector: 'app-rodape',
   standalone: true,
   imports: [],
-  templateUrl: './rodape.component.html',
-  styleUrl: './rodape.component.css'
+  template: `
+    <footer class="banner">
+      <img [src]="src" [alt]="alt" />
+    </footer>
+  `,
+  styles: [`
+    .rodape img{
+      max-width: 100%;
+    }
+
+    .rodape {
+      display: flex;
+    }
+  `]
 })
 export class RodapeComponent {
   @Input() src = '';

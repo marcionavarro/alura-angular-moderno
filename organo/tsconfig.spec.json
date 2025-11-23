@@ -1,15 +1,18 @@
 {
-  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "./out-tsc/spec",
-    "types": ["jest", "node"],
-    "emitDecoratorMetadata": true,
+    "module": "commonjs",
+    "target": "es2015",
+    "moduleResolution": "node",
     "esModuleInterop": true,
-    "allowJs": true
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "files": ["src/setup-jest.ts"],
   "include": [
-    "src/**/*.spec.ts",
-    "src/**/*.d.ts"
+    "src/**/*.ts",
+    "src/**/*.html"
   ]
 }
