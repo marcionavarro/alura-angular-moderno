@@ -15,7 +15,7 @@ import { AvaliacaoEstrelasComponent } from '../../componentes/avaliacao-estrelas
     RouterLink
   ],
   templateUrl: './formulario.component.html',
-  styleUrl: './formulario.component.css'
+  styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent implements OnInit{
   formulario!: FormGroup;
