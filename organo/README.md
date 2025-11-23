@@ -148,6 +148,16 @@ Isso gera um relatório em `coverage/lcov-report/index.html` mostrando:
 
 ---
 
+## 🖼️ Screenshots
+
+![alt text](image-1.png)
+
+![alt text](image.png)
+
+![alt text](image-2.png)
+
+---
+
 Este projeto é um projeto educacional da plataforma **Alura** e segue os princípios de compartilhamento de conhecimento.
 
 ---
