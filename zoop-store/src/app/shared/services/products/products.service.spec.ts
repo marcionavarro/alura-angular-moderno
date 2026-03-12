@@ -84,7 +84,6 @@ describe('ProductsService', () => {
     const produtos: Product[] = [
       { id: 5, title: 'Produto F', category: 'eletronic', description: 'Produto F', price: 109, image: 'image.png' },
     ]
-    // service.products.set(productsStorage);
 
     sessionStorage.setValue('products', produtos);
     const productCreate = service.fetchAllProductsCreated()().flat();

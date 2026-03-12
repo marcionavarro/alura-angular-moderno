@@ -1,7 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CommonModule } from '@angular/common';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClientModule } from '@angular/common/http';
+import { ComponentFixture, TestBed, fakeAsync, flushMicrotasks, waitForAsync } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -11,23 +10,21 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Observable, of } from 'rxjs';
+
 import { CreateProductComponent } from './create-product.component';
 import { CreateProductApiService } from './services/create-product-api.service';
 import { CreateProductService } from './services/create-product.service';
 import { Product } from '../../../types/product.inteface';
 import { BASE64_IMAGE } from '../../../shared/mock/base64-image.mock';
 
+
 const productMock: Product = {
   id: 1,
   title: 'Produto',
-  description: 'Descricao',
+  description: 'Descrição',
   category: 'Categoria',
   price: 10,
   image: BASE64_IMAGE
-}
-
-const dialogRefMock = {
-  close: jasmine.createSpy('close')
 }
 
 class MockCreateProductApiService {
@@ -40,10 +37,16 @@ describe('CreateProductComponent', () => {
   let component: CreateProductComponent;
   let fixture: ComponentFixture<CreateProductComponent>;
   let createProductService: CreateProductService;
+  let createProductApiService: CreateProductApiService;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  const dialogRefMock = {
+    close: jasmine.createSpy('close')
+  };
+
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
       imports: [
+        CreateProductComponent,
         CommonModule,
         ReactiveFormsModule,
         MatInputModule,
@@ -51,9 +54,8 @@ describe('CreateProductComponent', () => {
         MatButtonModule,
         MatSelectModule,
         MatIconModule,
-        HttpClientTestingModule,
-        BrowserAnimationsModule,
-        CreateProductComponent
+        HttpClientModule,
+        BrowserAnimationsModule
       ],
       providers: [
         CreateProductService,
@@ -70,11 +72,15 @@ describe('CreateProductComponent', () => {
           { provide: CreateProductApiService, useClass: MockCreateProductApiService }
         ]
       }
-    });
+    })
+  }));
 
-    createProductService = TestBed.inject(CreateProductService);
+  beforeEach(() => {
     fixture = TestBed.createComponent(CreateProductComponent);
     component = fixture.componentInstance;
+    createProductService = TestBed.inject(CreateProductService);
+    createProductApiService = TestBed.inject(CreateProductApiService);
+
     fixture.detectChanges();
   });
 
@@ -82,14 +88,14 @@ describe('CreateProductComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('dever listar as categorias', () => {
-    const categories = ['electronics', `men's clothing`, 'jewelery'];
-    component.categories$.subscribe((result) => {
-      expect(categories).toEqual(result);
-    })
+  it('deve carregar as categorias corretamente', () => {
+    const expectedCategories = ['electronics', `men's clothing`, 'jewelery'];
+    component.categories$.subscribe(categories => {
+      expect(categories).toEqual(expectedCategories);
+    });
   });
 
-  it('deve verificar se o formulário está preenchido com as informações do produto', () => {
+  it('deve definir os valores do formulário se os dados forem fornecidos', () => {
     expect(component.formGroup.get('id')?.value).toEqual(productMock.id);
     expect(component.formGroup.get('title')?.value).toEqual(productMock.title);
     expect(component.formGroup.get('description')?.value).toEqual(productMock.description);
@@ -97,7 +103,7 @@ describe('CreateProductComponent', () => {
     expect(component.formGroup.get('price')?.value).toEqual(productMock.price);
   });
 
-  it('deve chamar o metodo close ao clicar no botão cancelar', () => {
+  it('deve chamar o método close do dialogRef ao clicar no botão de cancelar', () => {
     component.onCancelClick();
     expect(dialogRefMock.close).toHaveBeenCalled();
   });
@@ -105,20 +111,21 @@ describe('CreateProductComponent', () => {
   it('deve chamar o método save do createProductService ao enviar o formulário', () => {
     spyOn(createProductService, 'save').and.returnValue(Promise.resolve());
 
-    const evento = {
-      target: {
-        files: [new File([''], 'imagem.jpeg', { type: 'image/jpeg' })]
-      }
-    }
+    const mockFileReader = {
+      readAsDataURL: jasmine.createSpy(),
+      result: 'base64-image',
+      onload: null as any
+    };
 
-    component.onImageSelected(evento);
+    spyOn(window as any, 'FileReader').and.returnValue(mockFileReader);
+
+    component.imageSelected = new File([''], 'imagem.jpeg', { type: 'image/jpeg' });
 
     component.onSubmitForm();
 
-    fixture.detectChanges();
+    // dispara manualmente o onload
+    mockFileReader.onload();
 
-    fixture.whenStable().then(() => {
-      expect(createProductService.save).toHaveBeenCalled();
-    })
-  })
+    expect(createProductService.save).toHaveBeenCalled();
+  });
 });

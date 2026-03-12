@@ -43,7 +43,7 @@ export class CreateProductComponent implements OnInit {
   formGroup!: FormGroup;
   categories$: Observable<string[]> = this.createProductApiService.getAllCategories();
 
-  private imageSelected!: File;
+  imageSelected!: File;
 
   constructor(
     private formBuilder: FormBuilder,
