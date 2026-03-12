@@ -4,7 +4,7 @@ import { CardComponent } from './card.component';
 import { Product } from '../../../types/product.inteface';
 import { By } from '@angular/platform-browser';
 
-fdescribe('CardComponent', () => {
+describe('CardComponent', () => {
   let component: CardComponent;
   let fixture: ComponentFixture<CardComponent>;
 

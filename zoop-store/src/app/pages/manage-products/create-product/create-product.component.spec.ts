@@ -102,7 +102,7 @@ describe('CreateProductComponent', () => {
     expect(dialogRefMock.close).toHaveBeenCalled();
   });
 
-  fit('deve chamar o método save do createProductService ao enviar o formulário', () => {
+  it('deve chamar o método save do createProductService ao enviar o formulário', () => {
     spyOn(createProductService, 'save').and.returnValue(Promise.resolve());
 
     const evento = {
