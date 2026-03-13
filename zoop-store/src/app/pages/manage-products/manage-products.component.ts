@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import { ProductsService } from '../../shared/services/products/products.service';
 import { Product } from '../../types/product.inteface';
@@ -16,7 +16,8 @@ export class ManageProductsComponent {
 
   constructor(
     private dialog: MatDialog,
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    // public dialogRef: MatDialogRef<ManageProductsComponent>
   ) {}
 
   onSubscribeProduct(): void {

@@ -11,8 +11,8 @@ describe('SearchComponent', () => {
     await TestBed.configureTestingModule({
       imports: [SearchComponent, BrowserAnimationsModule]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(SearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -20,5 +20,15 @@ describe('SearchComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('deve emitir searchText quando onInputChange é chamado', () => {
+    const value = 'IPhone 17';
+    const event = { target: { value } } as unknown as Event
+    const spy = spyOn(component.searchText, 'emit');
+
+    component.onInputChange(event);
+
+    expect(spy).toHaveBeenCalledWith(value);
   });
 });

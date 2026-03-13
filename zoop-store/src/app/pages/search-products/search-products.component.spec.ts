@@ -35,13 +35,13 @@ const data = {} as any
 
 const storageServiceMock = {
 
-  getAll: function(): any {
+  getAll: function (): any {
     return Object.values(data);
   },
-  setValue: function(key: any, value: any) {
+  setValue: function (key: any, value: any) {
     data[key] = value;
   },
-  remove: function(key: any) {
+  remove: function (key: any) {
     delete data[key];
   }
 };
@@ -70,13 +70,16 @@ describe('SearchProductsComponent', () => {
         { provide: ProductsApiService, useValue: null }
       ]
     })
-    .compileComponents();
+      .compileComponents();
 
     TestBed.overrideProvider(StorageService, { useValue: storageServiceMock });
     TestBed.overrideProvider(ProductsApiService, { useValue: productsApiServiceMock });
   });
 
   beforeEach(() => {
+    // 👇 reset do mock antes de cada teste
+    productsApiServiceMock.getAllProducts = () => of([...productsMock]);
+
     fixture = TestBed.createComponent(SearchProductsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -87,7 +90,7 @@ describe('SearchProductsComponent', () => {
   });
 
   it('deve buscar os produtos na inicialização', fakeAsync(() => {
-    component.ngOnInit();
+    // component.ngOnInit();
 
     tick();
 
@@ -103,9 +106,12 @@ describe('SearchProductsComponent', () => {
   }));
 
   it('deve buscar mais produtos ao rolar', fakeAsync(() => {
-    productsMock.push(
-      { id: 3, title: 'Produto C', category: `Shoes`, description: 'Product C', price: 150, image: 'image.png' }
-    );
+    const extendedProducts = [
+      ...productsMock,
+      { id: 3, title: 'Produto C', category: 'Shoes', description: 'Product C', price: 150, image: 'image.png' }
+    ];
+
+    productsApiServiceMock.getAllProducts = () => of(extendedProducts);
 
     component.onScroll();
 

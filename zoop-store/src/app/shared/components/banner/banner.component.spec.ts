@@ -10,8 +10,8 @@ describe('BannerComponent', () => {
     await TestBed.configureTestingModule({
       imports: [BannerComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(BannerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -20,4 +20,12 @@ describe('BannerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('deve renderizar o título fornecido', () => {
+    const titulo = 'Teste do título';
+    component.title = titulo;
+    fixture.detectChanges();
+    const element = fixture.nativeElement.querySelector('h1');
+    expect(element.textContent).toContain(titulo);
+  })
 });
