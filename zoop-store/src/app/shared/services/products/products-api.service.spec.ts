@@ -34,6 +34,10 @@ describe('ProductsApiService', () => {
     productsApiService.getAllProducts(itemPerPage).subscribe((products: Product[]) => {
       expect(products).toEqual(mockProducts);
     });
+
+    const req = httpTestingController.expectOne(`${environment.apiUrl}/products?limit=${itemPerPage}`);
+    expect(req.request.method).toEqual('GET');
+    req.flush(mockProducts);
   });
 
   it('deve lidar com erro ao chamar getAllProducts', () => {

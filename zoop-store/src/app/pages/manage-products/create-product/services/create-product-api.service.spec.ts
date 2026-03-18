@@ -54,6 +54,6 @@ describe('CreateProductApiService', () => {
     req.flush(mockProducts);
 
     httpTestingController.verify();
-  })
+  });
 
 });

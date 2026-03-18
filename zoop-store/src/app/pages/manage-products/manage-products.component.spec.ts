@@ -35,11 +35,11 @@ describe('ManageProductsComponent', () => {
   let productsService: ProductsService;
 
   const dialogRefSpy = {
-    afterClosed: jasmine.createSpy().and.returnValue(of({}))
+    afterClosed: jest.fn().mockReturnValue(of({}))
   };
 
   const matDialogMock = {
-    open: jasmine.createSpy().and.returnValue(dialogRefSpy)
+    open: jest.fn().mockReturnValue(dialogRefSpy)
   };
 
   beforeEach(async () => {
@@ -76,7 +76,7 @@ describe('ManageProductsComponent', () => {
   });
 
   it('deve deletar o produto ao chamar onDelete', () => {
-    spyOn(window, 'confirm').and.returnValue(true);
+    jest.spyOn(window, 'confirm').mockReturnValue(true);
 
     const mockProduct = productsMock[0];
 

@@ -44,7 +44,7 @@ describe('CardComponent', () => {
     expect(productImg.src).toContain(product.image);
     expect(productTitle.textContent).toContain(product.title);
     expect(productDescription.textContent).toContain(product.description);
-    expect(productPrice.textContent).toContain(product.price);
+    expect(productPrice.textContent).toContain(`R$ ${product.price}`);
   });
 
   it('deve emitir o evento onDelete quando clicar no delete', () => {
@@ -60,7 +60,7 @@ describe('CardComponent', () => {
     component.product = product;
     fixture.detectChanges();
 
-    const spy = spyOn(component.onDelete, 'emit');
+    const spy = jest.spyOn(component.onDelete, 'emit');
     
     component.isManagable = true;
 
@@ -87,7 +87,7 @@ describe('CardComponent', () => {
     component.product = product;
     fixture.detectChanges();
 
-    const spy = spyOn(component.onEdit, 'emit');
+    const spy = jest.spyOn(component.onEdit, 'emit');
     
     component.isManagable = true;
 

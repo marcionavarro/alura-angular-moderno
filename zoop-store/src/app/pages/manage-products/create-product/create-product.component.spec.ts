@@ -40,7 +40,7 @@ describe('CreateProductComponent', () => {
   let createProductApiService: CreateProductApiService;
 
   const dialogRefMock = {
-    close: jasmine.createSpy('close')
+    close: jest.fn()
   };
 
   beforeEach(waitForAsync(() => {
@@ -109,15 +109,15 @@ describe('CreateProductComponent', () => {
   });
 
   it('deve chamar o método save do createProductService ao enviar o formulário', () => {
-    spyOn(createProductService, 'save').and.returnValue(Promise.resolve());
+    jest.spyOn(createProductService, 'save').mockReturnValue(Promise.resolve());
 
     const mockFileReader = {
-      readAsDataURL: jasmine.createSpy(),
+      readAsDataURL: jest.fn(),
       result: 'base64-image',
       onload: null as any
     };
 
-    spyOn(window as any, 'FileReader').and.returnValue(mockFileReader);
+    jest.spyOn(window as any, 'FileReader').mockReturnValue(mockFileReader);
 
     component.imageSelected = new File([''], 'imagem.jpeg', { type: 'image/jpeg' });
 
@@ -127,5 +127,18 @@ describe('CreateProductComponent', () => {
     mockFileReader.onload();
 
     expect(createProductService.save).toHaveBeenCalled();
+  });
+
+  it('deve executar onImageSelected e setar imageSelected', () => {
+    const fakeFile = new File([''], 'photo.png', { type: 'image/png' });
+    const fakeEvent = {
+      target: {
+        files: [fakeFile]
+      }
+    } as any;
+
+    component.onImageSelected(fakeEvent);
+
+    expect(component.imageSelected).toBe(fakeFile);
   });
 });
