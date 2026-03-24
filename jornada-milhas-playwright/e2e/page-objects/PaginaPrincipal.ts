@@ -1,4 +1,4 @@
-import { Locator, Page } from "@playwright/test";
+import { expect, Locator, Page } from "@playwright/test";
 
 export class PaginaPrincipal {
     private readonly page: Page;
@@ -64,19 +64,19 @@ export class PaginaPrincipal {
     }
 
     async definirPassageirosAdultos(quantidade: number) {
-        for(let i = 1; i < quantidade; i++) {
+        for (let i = 1; i < quantidade; i++) {
             await this.botaoIncrementarAdultos.click();
         }
     }
 
     async definirPassageirosCriancas(quantidade: number) {
-        for(let i = 0; i < quantidade; i++) {
+        for (let i = 0; i < quantidade; i++) {
             await this.botaoIncrementarCriancas.click();
         }
     }
 
     async definirPassageirosBebes(quantidade: number) {
-        for(let i = 0; i < quantidade; i++) {
+        for (let i = 0; i < quantidade; i++) {
             await this.botaoIncrementarBebes.click();
         }
     }
@@ -87,9 +87,29 @@ export class PaginaPrincipal {
 
     async definirOrigemEDestino(origem: string, destino: string) {
         await this.campoDropdownOrigem.fill(origem);
-        await this.campoDropdownOrigem.press('Enter');  
-        
+        await this.campoDropdownOrigem.press('Enter');
+
         await this.campoDropdownDestino.fill(destino);
-        await this.campoDropdownDestino.press('Enter'); 
+        await this.campoDropdownDestino.press('Enter');
+    }
+
+    async definirData(data: Date) {
+        const dataFormatada = data.toLocaleString('en-US', { dateStyle: 'short' });
+        await this.campoDataIda.fill(dataFormatada);
+    }
+
+    async buscarPassagens() {
+        await this.botaoBuscarPassagens.click();
+    }
+
+    async estaMostrandoPassagem(
+        tipoTrajeto: 'Somente ida' | 'Ida e volta',
+        origem: string,
+        destino: string
+    ) {
+        await expect(this.textoIdaVolta).toHaveText(tipoTrajeto);
+        await expect(this.containerOrigem).toContainText(origem);
+        await expect(this.containerDestino).toContainText(destino);
+        await expect(this.botaoComprar).toBeVisible();
     }
 }
