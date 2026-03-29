@@ -8,7 +8,7 @@ export enum Genero {
 
 export type Perfil = {
     nome: string;
-    dataNascimento: string;
+    dataNascimento: Date;
     genero: Genero;
     cpf: string;
     telefone: string;
