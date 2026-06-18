@@ -32,7 +32,12 @@ app.post("/send-notification", async (req, res) => {
   const notifications = subscriptions.map((subscription) => {
     return webpush.sendNotification(
       subscription,
-      JSON.stringify({ title, body }),
+      JSON.stringify({
+        notification: {
+          title,
+          body,
+        },
+      }),
     );
   });
 

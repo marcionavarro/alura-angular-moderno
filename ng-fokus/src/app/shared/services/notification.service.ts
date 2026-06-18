@@ -58,7 +58,6 @@ export class NotificationService {
         serverPublicKey: this.VAPID_PUBLIC_KEY,
       })
       .then((subscription) => {
-        console.log('SUBSCRIPTION COMPLETA:', subscription);
         this.sendSubscriptionToServer(subscription).subscribe();
       })
       .catch((err) => console.error('Erro ao registrar push ', err));
