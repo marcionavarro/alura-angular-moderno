@@ -9,12 +9,14 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { TaskManagerComponent } from './shared/components/task-manager/task-manager.component';
 import { TimerControlComponent } from './shared/components/timer-control/timer-control.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     CommonModule,
+    HttpClientModule,
     RouterOutlet,
     HeaderComponent,
     FooterComponent,

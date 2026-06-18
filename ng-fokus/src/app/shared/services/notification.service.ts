@@ -1,0 +1,75 @@
+import { isPlatformBrowser } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { SwPush } from '@angular/service-worker';
+import { Observable } from 'rxjs';
+import { NotificationMessage } from './notification-message';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class NotificationService {
+  readonly VAPID_PUBLIC_KEY =
+    'BGw4Fuov12Klb9MNl0VkFNEaxjRs7p1ytzM0VuRcwxQIkm9OO2Y1drEuNaEa2W44yc9XFlGMysMgEcq9Do9icRY';
+  private baseUrl = 'http://localhost:3000';
+
+  constructor(
+    private swPush: SwPush,
+    private httpClient: HttpClient,
+    @Inject(PLATFORM_ID) private platformId: Object,
+  ) {
+    this.subscribeToNotifications();
+  }
+
+  requestPermission(): Promise<NotificationPermission> {
+    if (!this.notificationsSupported) {
+      return Promise.reject('Notifications not supported');
+    }
+
+    return window.Notification.requestPermission();
+  }
+
+  showNotification(title: string, options?: NotificationOptions): void {
+    if (!this.notificationsSupported) {
+      console.warn('Notifications not supported');
+      return;
+    }
+
+    if (window.Notification.permission === 'granted') {
+      new window.Notification(title, options);
+    } else {
+      console.warn('Notifications not supported');
+      return;
+    }
+  }
+
+  private get notificationsSupported(): boolean {
+    return isPlatformBrowser(this.platformId) && 'Notification' in window;
+  }
+
+  private subscribeToNotifications() {
+    if (!this.swPush.isEnabled) {
+      console.log('Service Worker não habilitado');
+      return;
+    }
+
+    this.swPush
+      .requestSubscription({
+        serverPublicKey: this.VAPID_PUBLIC_KEY,
+      })
+      .then((subscription) => {
+        console.log('SUBSCRIPTION COMPLETA:', subscription);
+        this.sendSubscriptionToServer(subscription).subscribe();
+      })
+      .catch((err) => console.error('Erro ao registrar push ', err));
+  }
+
+  private sendSubscriptionToServer(
+    subscription: PushSubscription,
+  ): Observable<NotificationMessage> {
+    return this.httpClient.post<NotificationMessage>(
+      `${this.baseUrl}/subscribe`,
+      subscription,
+    );
+  }
+}
