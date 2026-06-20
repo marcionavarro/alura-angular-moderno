@@ -20,7 +20,6 @@ webpush.setVapidDetails(
 let subscriptions = [];
 
 app.post("/subscribe", (req, res) => {
-  console.log("Subscription recebida:", JSON.stringify(req.body, null, 2));
   const subscription = req.body;
   subscriptions.push(subscription);
   res.status(201).json({});
@@ -28,7 +27,6 @@ app.post("/subscribe", (req, res) => {
 
 app.post("/send-notification", async (req, res) => {
   const { title, body } = req.body;
-  console.log("Enviando notificação:", { title, body });
   const notifications = subscriptions.map((subscription) => {
     return webpush.sendNotification(
       subscription,
