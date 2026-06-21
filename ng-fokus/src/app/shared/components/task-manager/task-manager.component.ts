@@ -72,6 +72,7 @@ export class TaskManagerComponent implements AfterViewInit {
 
   onCleanTasksClick(): void {
     this.tasks = [];
+    this.indexedDBService.clearAllTasks().subscribe();
     this.taskItemSelected = null;
   }
 

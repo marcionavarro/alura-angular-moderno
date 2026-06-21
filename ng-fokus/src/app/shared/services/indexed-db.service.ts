@@ -42,8 +42,8 @@ export class IndexedDBService {
     ).toString();
   }
 
-  private decrypt(encrypteData: string): any {
-    const bytes = CryptoJS.AES.decrypt(encrypteData, this.secretKey);
+  private decrypt(encryptedData: string): any {
+    const bytes = CryptoJS.AES.decrypt(encryptedData, this.secretKey);
     return JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
   }
 
@@ -103,7 +103,7 @@ export class IndexedDBService {
               try {
                 const decryptedTasks = req.result.map((encryptedTask) => {
                   const decryptedData = this.decrypt(
-                    encryptedTask.encrypteData,
+                    encryptedTask.encryptedData,
                   );
                   return {
                     ...decryptedData,
@@ -118,6 +118,26 @@ export class IndexedDBService {
               }
             };
             req.onerror = () => obs.error('List tasks failed');
+          }),
+      ),
+    );
+  }
+
+  clearAllTasks(): Observable<void> {
+    return this.waitForDB().pipe(
+      switchMap(
+        () =>
+          new Observable<void>((obs) => {
+            const req = this.store$.clear();
+
+            req.onsuccess = () => {
+              obs.next;
+              obs.complete();
+            };
+
+            req.onerror = () => {
+              obs.error('Failed to clear tasks');
+            };
           }),
       ),
     );
