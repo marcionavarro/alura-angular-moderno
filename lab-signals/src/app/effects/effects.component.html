@@ -1,26 +1,28 @@
 <h2>Simulação de Estado Físico</h2>
 <ul>
-  @for (elemento of elementos; track $index) {
+  @for (elemento of elementoService.elementos; track $index) {
     <li (click)="selecionarElemento(elemento)">
       {{ elemento.nome }} ({{ elemento.simbolo }})
     </li>
   }
 </ul>
 
-@if (elementoSelecionado()) {
+@if (elementoService.elementoSelecionado()) {
   <div class="selection">
     <div class="elements">
-      <p>Elemento Selecionado: {{ elementoSelecionado()?.nome }}</p>
+      <p>
+        Elemento Selecionado: {{ elementoService.elementoSelecionado()?.nome }}
+      </p>
     </div>
     <div class="temperature">
-      <p>Temperatura Atual: {{ temperatura() }}°C</p>
-      <button (click)="ajustarTemperatura(temperatura() + 10)">
+      <p>Temperatura Atual: {{ elementoService.temperatura() }}°C</p>
+      <button (click)="ajustarTemperatura(elementoService.temperatura() + 10)">
         Aumentar Temperatura
       </button>
-      <button (click)="ajustarTemperatura(temperatura() - 10)">
+      <button (click)="ajustarTemperatura(elementoService.temperatura() - 10)">
         Diminuir Temperatura
       </button>
     </div>
-    <p>Estado Físico: {{ estadoFisico() }}</p>
+    <p>Estado Físico: {{ elementoService.estadoFisico() }}</p>
   </div>
 }

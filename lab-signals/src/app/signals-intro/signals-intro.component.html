@@ -1,14 +1,16 @@
 <div>
   <h2>Elementos Químicos</h2>
   <ul>
-    @for (elemento of elementos; track elemento) {
+    @for (elemento of elementoService.elementos; track elemento) {
       <li (click)="selecionarElemento(elemento)">{{ elemento.nome }}</li>
     }
   </ul>
 
-  @if (elementoSelecionado()) {
-    <p>Elemento selecionado: {{ elementoSelecionado()?.nome }}</p>
+  @if (elementoService.elementoSelecionado()) {
+    <p>
+      Elemento selecionado: {{ elementoService.elementoSelecionado()?.nome }}
+    </p>
   }
 
-  <p>Informações Detalhadas: {{ elementoInfo() }}</p>
+  <p>Informações Detalhadas: {{ elementoService.elementoInfo() }}</p>
 </div>
