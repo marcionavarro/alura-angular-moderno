@@ -1,0 +1,14 @@
+<h2>
+  Elementos Favoritos
+  <span style="font-size: 14px; color: #fff"
+    >( {{ elementoService.obterFavoritos().length }} )</span
+  >
+</h2>
+
+<ul>
+  @for (elemento of elementoService.obterFavoritos(); track elemento.nome) {
+    <li>{{ elemento.nome }} ({{ elemento.simbolo }})</li>
+  } @empty {
+    <P>Nenhum favorito</P>
+  }
+</ul>

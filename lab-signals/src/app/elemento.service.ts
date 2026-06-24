@@ -15,6 +15,7 @@ export class ElementoService {
   elementoSelecionado = signal<Elemento | null>(null);
   temperatura = signal<number>(25);
   estadoFisico = signal<string>('');
+  favoritos = signal<Elemento[]>([]);
 
   elementos: Elemento[] = [
     {
@@ -79,6 +80,22 @@ export class ElementoService {
       ? `Nome: ${elemento.nome}, Símbolo: ${elemento.simbolo}, Número de massa: ${elemento.numeroMassa}`
       : 'Nenhum elemento selecionado';
   });
+
+  obterFavoritos() {
+    return this.favoritos();
+  }
+
+  obterElementoSelecionado() {
+    return this.elementoInfo();
+  }
+
+  adicionarFavorito(elemento: Elemento) {
+    this.favoritos.update((fav) => [...fav, elemento]);
+  }
+
+  removerFavoritos(elemento: Elemento) {
+    this.favoritos.update((fav) => fav.filter((e) => e !== elemento));
+  }
 
   private effect(): void {
     effect(
