@@ -93,8 +93,6 @@ npm run build
 
 ## 📸 Screenshots
 
-A seguir, você pode organizar as capturas de tela da aplicação:
-
 - Tela inicial com a navegação entre os exemplos de Signals
 
   ![Tela inicial](screenshots/image.png)
@@ -140,4 +138,3 @@ src/
 - Guia de Signals no Angular: https://angular.dev/guide/signals
 - Documentação de RxJS: https://rxjs.dev/
 - Documentação do Angular Router: https://angular.io/guide/router
-- Repositório do projeto: utilize o link do seu GitHub ou GitLab para compartilhar o código
