@@ -33,9 +33,9 @@ export class ProductService {
         .select('*')
         .eq('id', id)
         .single()
-        .then(({ data: products, error }) => {
+        .then(({ data: product, error }) => {
           if (error) throw new Error(error.message);
-          return products || []
+          return product 
         })
     )
   }
