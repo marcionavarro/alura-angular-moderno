@@ -1,0 +1,17 @@
+id,title,price,image,ingredients,category,imageDetails
+1,Milkshake de morango com baunilha,18,assets/images/milkshake-morango.png,"Leite, sorvete de baunilha, sorvete de morango.",Milkshakes,assets/images/2x/milkshake-morango2x.png
+2,Milkshake de frutas verdes e hortelã,18,assets/images/milkshake-frutas-verdes.png,"Leite, sorvete de frutas verdes, hortelã.",Milkshakes,assets/images/2x/milkshake-frutas-verdes2x.png
+3,Milkshake de amora com mirtilos,18,assets/images/milkshake-amora.png,"Leite, sorvete de amora, sorvete de mirtilo.",Milkshakes,assets/images/2x/milkshake-amora2x.png
+4,Milkshake de limão e maracujá,18,assets/images/milkshake-limao.png,"Leite, sorvete de limão, polpa de maracujá.",Milkshakes,assets/images/2x/milkshake-limao2x.png
+5,Sorvete de morango,18,assets/images/sorvete-morango.png,"Leite, creme de leite, polpa de morango fresco.",Sorvetes,assets/images/2x/sorvete-morango2x.png
+6,Sorvete de amora,18,assets/images/sorvete-amora.png,"Leite, creme de leite, purê de amora.",Sorvetes,assets/images/2x/sorvete-amora2x.png
+7,Sorvete de limão siciliano,18,assets/images/sorvete-limao.png,"Leite, creme de leite, suco de limão siciliano.",Sorvetes,assets/images/2x/sorvete-limao2x.png
+8,Sorvete de pistache,18,assets/images/sorvete-pistache.png,"Leite, creme de leite, pistache triturado.",Sorvetes,assets/images/2x/sorvete-pistache2x.png
+9,Smoothie de caju,18,assets/images/smoothie-caju.png,"Caju fresco, água de coco, gelo.",Smoothies,assets/images/2x/smoothie-caju2x.png
+10,Smoothie de framboesa,18,assets/images/smoothie-framboesa.png,"Framboesa fresca, leite de amêndoas, gelo.",Smoothies,assets/images/2x/smoothie-framboesa2x.png
+11,Smoothie de kiwi,18,assets/images/smoothie-kiwi.png,"Kiwi fresco, suco de maçã, gelo.",Smoothies,assets/images/2x/smoothie-kiwi2x.png
+12,Smoothie de morango,18,assets/images/smoothie-morango.png,"Morango fresco, iogurte natural, gelo.",Smoothies,assets/images/2x/smoothie-morango2x.png
+13,Capuccino gelado,18,assets/images/capuccino-gelado.png,"Café expresso, leite, gelo, chantilly.",Cafés gelados,assets/images/2x/capuccino-gelado2x.png
+14,Café com leite vegetal,18,assets/images/capuccino-gelado-com-leite-vegetal.png,"Café expresso, leite vegetal, gelo.",Cafés gelados,assets/images/2x/capuccino-gelado-com-leite-vegetal2x.png
+15,Affogato,18,assets/images/affogato.png,"Café expresso, sorvete de baunilha.",Cafés gelados,assets/images/2x/affogato2x.png
+16,Expresso com chantilly,18,assets/images/expresso-gelado-com-chantilly.png,"Café expresso, chantilly, gelo.",Cafés gelados,assets/images/2x/expresso-gelado-com-chantilly2x.png
