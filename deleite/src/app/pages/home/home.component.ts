@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { afterNextRender, Component, OnInit } from '@angular/core';
 
 import { ProductsListComponent } from '../../components/products-list/products-list.component';
 
@@ -10,5 +10,18 @@ import { ProductsListComponent } from '../../components/products-list/products-l
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+
+  constructor() {
+    console.log('Construtor');
+    afterNextRender(() => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+          console.log('Aqui', position.coords.latitude)
+        })
+      } else {
+        console.log('Erro ao obter localização');
+      }
+    })
+  }
 
 }
