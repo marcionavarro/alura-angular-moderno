@@ -12,7 +12,6 @@ import { ProductsListComponent } from '../../components/products-list/products-l
 export class HomeComponent {
 
   constructor() {
-    console.log('Construtor');
     afterNextRender(() => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
