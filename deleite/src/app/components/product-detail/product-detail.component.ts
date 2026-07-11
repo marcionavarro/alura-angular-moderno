@@ -43,7 +43,6 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService,
     private title: Title,
     private meta: Meta,
   ) {}
