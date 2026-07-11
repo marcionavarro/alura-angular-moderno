@@ -10,16 +10,15 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { AppShellRenderDirective } from "../../diretivas/app-shell-render.directive";
 
 @Component({
-  selector: 'app-products-list',
-  standalone: true,
-  imports: [
-    CommonModule,
-    ProductCardComponent,
-    MatProgressSpinnerModule,
-    AppShellRenderDirective
-],
-  templateUrl: './products-list.component.html',
-  styleUrl: './products-list.component.css'
+    selector: 'app-products-list',
+    imports: [
+        CommonModule,
+        ProductCardComponent,
+        MatProgressSpinnerModule,
+        AppShellRenderDirective
+    ],
+    templateUrl: './products-list.component.html',
+    styleUrl: './products-list.component.css'
 })
 export class ProductsListComponent implements OnInit {
 
