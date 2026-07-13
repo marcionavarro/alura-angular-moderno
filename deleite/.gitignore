@@ -42,3 +42,9 @@ testem.log
 Thumbs.db
 
 refer.txt
+
+
+
+.nx/cache
+.nx/workspace-data
+.nx/migrate-runs
