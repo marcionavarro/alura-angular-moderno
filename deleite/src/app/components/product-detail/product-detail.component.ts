@@ -1,4 +1,4 @@
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,34 +16,40 @@ import { AppShellRenderDirective } from '../../diretivas/app-shell-render.direct
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AppShellNoRenderDirective } from '../../diretivas/app-shell-no-render.directive';
 import { Meta, Title } from '@angular/platform-browser';
+import { CartService } from '../../services/cart.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-    selector: 'app-product-detail',
-    imports: [
-        CommonModule,
-        MatCardModule,
-        MatFormFieldModule,
-        MatSelectModule,
-        MatInputModule,
-        MatCheckboxModule,
-        MatButtonModule,
-        MatIcon,
-        RouterLink,
-        MatProgressSpinnerModule,
-        AppShellRenderDirective,
-        AppShellNoRenderDirective,
-    ],
-    templateUrl: './product-detail.component.html',
-    styleUrl: './product-detail.component.css'
+  selector: 'app-product-detail',
+  imports: [
+    CommonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatIcon,
+    RouterLink,
+    MatProgressSpinnerModule,
+    AppShellRenderDirective,
+    AppShellNoRenderDirective,
+    FormsModule,
+  ],
+  templateUrl: './product-detail.component.html',
+  styleUrl: './product-detail.component.css',
 })
 export class ProductDetailComponent implements OnInit {
   quantities: number[] = [1, 2, 3, 4, 5];
   product!: Product;
+  selectedQuantity: number = 1;
 
   constructor(
     private route: ActivatedRoute,
     private title: Title,
     private meta: Meta,
+    private cartService: CartService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -51,6 +57,11 @@ export class ProductDetailComponent implements OnInit {
     if (this.product) {
       this.setPageMeta(this.product);
     }
+  }
+
+  addToCart(product: Product, quantity: number) {
+    this.cartService.addToCart(product, quantity);
+    this.router.navigate(['/checkout']);
   }
 
   setPageMeta(product: Product) {

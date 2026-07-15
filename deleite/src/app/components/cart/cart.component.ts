@@ -5,10 +5,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartItem } from '../../interfaces/cart_item';
 import { RouterLink } from '@angular/router';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -26,9 +27,17 @@ import { RouterLink } from '@angular/router';
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
 })
-export class CartComponent {
+export class CartComponent implements OnInit {
   cartItems: CartItem[] = [];
   total: number = 0;
+
+  constructor(private cartService: CartService) {}
+
+  ngOnInit(): void {
+    this.cartService.cartItems$.subscribe((items) => {
+      this.cartItems = items;
+    });
+  }
 
   getQuantities(currentQuantity: number): number[] {
     const maxQuantity = Math.max(currentQuantity, 10);
