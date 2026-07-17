@@ -3,21 +3,14 @@ import WebSocket from 'ws';
 (globalThis as any).WebSocket = WebSocket;
 
 import { Injectable } from '@angular/core';
-import { createClient } from '@supabase/supabase-js';
-import { environment } from '../../environments/environment.development';
 import { from, Observable } from 'rxjs';
 import { Product } from '../interfaces/product';
-
-export const supabase = createClient(
-  environment.supabaseUrl,
-  environment.supabaseKey
-)
+import { supabase } from './supabase.client';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
-
   getProducts(): Observable<Product[]> {
     return from(
       supabase
@@ -25,9 +18,9 @@ export class ProductService {
         .select('*')
         .then(({ data: products, error }) => {
           if (error) throw new Error(error.message);
-          return products || []
-        })
-    )
+          return products || [];
+        }),
+    );
   }
 
   getProductById(id: number): Observable<Product> {
@@ -39,8 +32,8 @@ export class ProductService {
         .single()
         .then(({ data: product, error }) => {
           if (error) throw new Error(error.message);
-          return product
-        })
-    )
+          return product;
+        }),
+    );
   }
 }

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, from, Observable } from 'rxjs';
 import { CartItem } from '../interfaces/cart_item';
 import { Product } from '../interfaces/product';
+import { supabase } from './supabase.client';
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +10,10 @@ import { Product } from '../interfaces/product';
 export class CartService {
   private cartitemsSubject = new BehaviorSubject<CartItem[]>([]);
   public cartItems$ = this.cartitemsSubject.asObservable();
+
+  constructor() {
+    this.loadCart();
+  }
 
   addToCart(product: Product, quantity: number = 1) {
     const currentItems = this.getCurrentItems();
@@ -23,6 +28,9 @@ export class CartService {
     }
 
     this.cartitemsSubject.next(currentItems);
+    this.saveCartItems(
+      currentItems[itemIndex] || { product, quantity },
+    ).subscribe();
   }
 
   getTotalQuantity(): number {
@@ -31,5 +39,39 @@ export class CartService {
 
   private getCurrentItems(): CartItem[] {
     return this.cartitemsSubject.getValue();
+  }
+
+  private saveCartItems(cartItem: CartItem): Observable<void> {
+    return from(
+      supabase
+        .from('cart_items')
+        .insert({
+          product_id: cartItem.product.id,
+          quantity: cartItem.quantity,
+        })
+        .then(({ error }) => {
+          if (error) throw new Error(error.message);
+        }),
+    );
+  }
+
+  private loadCart() {
+    from(
+      supabase
+        .from('cart_items')
+        .select('quantity, product:product_id (id, title, price, image)'),
+    ).subscribe({
+      next: ({ data, error }) => {
+        if (error) {
+          console.log('Erro ao carregar o carrinho', error.message);
+        } else {
+          const items = (data || []).map((item: any) => ({
+            product: item.product,
+            quantity: item.quantity,
+          }));
+          this.cartitemsSubject.next(items);
+        }
+      },
+    });
   }
 }
