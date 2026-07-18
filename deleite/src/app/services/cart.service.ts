@@ -33,6 +33,14 @@ export class CartService {
     ).subscribe();
   }
 
+  removeFromCart(productId: number) {
+    const updatedItems = this.getCurrentItems().filter(
+      (item) => item.product.id !== productId,
+    );
+    this.cartitemsSubject.next(updatedItems);
+    this.deleteCartItem(productId).subscribe();
+  }
+
   getTotalQuantity(): number {
     return this.getCurrentItems().reduce((acc, item) => acc + item.quantity, 0);
   }
@@ -45,10 +53,25 @@ export class CartService {
     return from(
       supabase
         .from('cart_items')
-        .insert({
-          product_id: cartItem.product.id,
-          quantity: cartItem.quantity,
-        })
+        .upsert(
+          {
+            product_id: cartItem.product.id,
+            quantity: cartItem.quantity,
+          },
+          { onConflict: 'product_id' },
+        )
+        .then(({ error }) => {
+          if (error) throw new Error(error.message);
+        }),
+    );
+  }
+
+  private deleteCartItem(productId: number): Observable<void> {
+    return from(
+      supabase
+        .from('cart_items')
+        .delete()
+        .eq('product_id', productId)
         .then(({ error }) => {
           if (error) throw new Error(error.message);
         }),
