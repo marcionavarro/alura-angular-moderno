@@ -17,9 +17,7 @@ export class CartService {
 
   addToCart(product: Product, quantity: number = 1) {
     const currentItems = this.getCurrentItems();
-    const itemIndex = currentItems.findIndex(
-      (item) => item.product.id === product.id,
-    );
+    const itemIndex = this.findItemIndexByProductId(product.id);
 
     if (itemIndex >= 0) {
       currentItems[itemIndex].quantity += quantity;
@@ -31,6 +29,17 @@ export class CartService {
     this.saveCartItems(
       currentItems[itemIndex] || { product, quantity },
     ).subscribe();
+  }
+
+  updateCartItem(productId: number, quantity: number) {
+    const currentItems = this.getCurrentItems();
+    const itemIndex = this.findItemIndexByProductId(productId);
+
+    if (itemIndex >= 0) {
+      currentItems[itemIndex].quantity = quantity;
+      this.cartitemsSubject.next(currentItems);
+      this.saveCartItems(currentItems[itemIndex]).subscribe();
+    }
   }
 
   removeFromCart(productId: number) {
@@ -96,5 +105,10 @@ export class CartService {
         }
       },
     });
+  }
+
+  private findItemIndexByProductId(productId: number) {
+    const currentItems = this.getCurrentItems();
+    return currentItems.findIndex((item) => item.product.id === productId);
   }
 }
