@@ -43,9 +43,10 @@ h2 {
   align-items: center;
   gap: 16px;
   margin-top: 24px;
+
   p {
     font-size: 18px;
-    font-family: agbalumo;
+    font-family: Agbalumo;
     color: #424242;
   }
 }
