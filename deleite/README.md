@@ -1,46 +1,118 @@
-![Thumbnail](./thumbnail.png)
+﻿![Thumbnail](./thumbnail.png)
 
-# Deleite
+# ✨ Deleite
 
-**Deleite** é um projeto de e-commerce desenvolvido com Angular, utilizando renderização no servidor (SSR) para proporcionar uma experiência de navegação rápida e otimizada. O projeto inclui uma página inicial com a listagem de produtos e uma página de detalhes para exibir informações específicas de cada item.
+**Deleite** é um projeto de e-commerce criado com Angular, focado em oferecer uma experiência visual atraente, veloz e responsiva utilizando Server-Side Rendering (SSR) e pré-renderização de rotas. O aplicativo disponibiliza uma página inicial com produtos e uma página de detalhes para cada item, trazendo informações completas, imagens e preços.
 
-## Funcionalidades do projeto
+## 🎯 Funcionalidades do projeto
 
-- **Listagem de produtos**: Exibe os produtos disponíveis com imagem e nome.
-- **Tela de detalhes do produto**: Mostra informações detalhadas do produto selecionado, como preço e ingredientes, proporcionando uma experiência de compra mais informativa.
+- **Listagem de produtos**: apresenta todos os produtos disponíveis com imagem, nome e resumo.
+- **Tela de detalhes do produto**: exibe informações completas do item selecionado, incluindo preço, ingredientes e descrição.
+- **Navegação fluida**: páginas renderizadas no servidor garantindo carregamento rápido.
+- **SEO e compartilhamento otimizados**: uso de meta tags Open Graph para melhor visualização em redes sociais.
+- **Integração com backend**: consumo de dados via Supabase para carregar produtos dinamicamente.
+- **Design consistente com Angular Material**: componentes estilizados que seguem um visual moderno.
 
-## Técnicas e tecnologias utilizadas
+## 🛠️ Técnicas e tecnologias utilizadas
 
-- **Angular com SSR (Server-Side Rendering)**: Melhora o SEO e o tempo de carregamento inicial ao renderizar conteúdo no servidor antes de exibi-lo.
-- **Supabase**: Usado como backend para o banco de dados, permitindo a manipulação e consumo de dados de maneira eficiente.
-- **Conexão e consumo de API no Angular**: Integração com o backend do Supabase, garantindo acesso aos dados em tempo real.
-- **Angular Material**: Proporciona componentes prontos e estilizados, como cards, botões, e modais, garantindo uma interface consistente e fácil de usar.
-- **Meta Tags Open Graph (OG)**: Implementadas para otimização de SEO e melhor compartilhamento em redes sociais.
-- **Pré-renderização de rotas com SSG (Static Site Generation)**: Utilizada para gerar conteúdo estático para rotas específicas, melhorando a performance e o tempo de resposta.
-- **Otimização de performance**: Técnicas para otimizar o carregamento e a usabilidade.
+| Categoria        | Ferramenta / Técnica         |
+| ---------------- | ---------------------------- |
+| Framework        | Angular 19                   |
+| Renderização     | SSR (Server-Side Rendering)  |
+| Pré-renderização | SSG (Static Site Generation) |
+| Backend          | Supabase                     |
+| UI               | Angular Material             |
+| API              | @supabase/supabase-js        |
+| Servidor         | Express                      |
+| Gerenciamento    | Nx                           |
+| Testes           | Karma + Jasmine              |
 
-## Link do Figma
+## 🎓 O que aprendemos neste projeto
 
-Você pode [acessar o Figma do projeto aqui](https://www.figma.com/community/file/1426683199017059395).
+- Como configurar e executar um app Angular com SSR.
+- Como pré-renderizar rotas estáticas usando SSG.
+- Como conectar um frontend Angular ao Supabase para buscar dados.
+- Como usar Angular Material para construir interfaces modernas.
+- Como configurar metatags Open Graph para SEO.
+- Como organizar a estrutura de um projeto NX com Angular.
 
-## Abrir e rodar o projeto
+## 📋 Pré-requisitos e dependências
 
-Para abrir e rodar o projeto, utilize os seguintes comandos:
+Antes de começar, certifique-se de ter instalado no seu ambiente:
 
-### Instale as dependências
+- Node.js (versão 18 ou superior recomendada)
+- npm
+- Angular CLI
+- Git
+
+Dependências principais usadas no projeto:
+
+- @angular/core
+- @angular/platform-browser
+- @angular/platform-server
+- @angular/material
+- @supabase/supabase-js
+- @supabase/ssr
+- express
+- nx
+
+## 🚀 Como clonar, instalar e rodar
 
 ```bash
+# Clone o repositório
+git clone https://github.com/marcionavarro/alura-angular-moderno.git
+cd deleite
+
+# Instale as dependências do projeto
 npm install
+
+# Rode a aplicação em modo de desenvolvimento
+npm start
 ```
 
-### Instale o angular material
+Acesse o site no navegador em:
+
+```text
+http://localhost:4200
+```
+
+Se quiser testar o servidor SSR diretamente depois de buildar:
+
 ```bash
-ng add @angular/material
+npm run build
+npm run serve:ssr:deleite
 ```
 
-### Execute o projeto 
-```bash
-ng serve
-```
+## 📸 Screenshots
 
-Acesse o frontend localmente em seu navegador: http://localhost:4200
+> Interface inicial do projeto, com destaque para as cartas de produtos e o layout em Angular Material.
+
+![Tela Inicial do Deleite](./screenshots/deleite.png)
+
+> Interface da pagina sobre do projeto.
+
+![Tela Sobre do Deleite](./screenshots/deleite-sobre.png)
+
+> Interface da pagina checkout do projeto.
+
+![Tela Checkout do Deleite](./screenshots/deleite-checkout.png)
+
+## 📁 Estrutura de diretórios
+
+- `src/` - código-fonte da aplicação Angular.
+- `src/app/` - componentes, rotas e serviços principais.
+- `src/assets/` - arquivos estáticos usados pelo app.
+- `src/environments/` - configurações de ambiente.
+- `public/` - ativos públicos que são copiados para o build final.
+- `server.ts` - ponto de entrada para SSR e configuração do servidor.
+- `routes.txt` - rotas pré-renderizadas para SSG.
+- `angular.json` / `project.json` - configuração do projeto e build.
+- `package.json` - scripts e dependências do projeto.
+
+## 📚 Recursos e links úteis
+
+- Figma do projeto: https://www.figma.com/community/file/1426683199017059395
+- Documentação Angular: https://angular.io/docs
+- Documentação Supabase: https://supabase.com/docs
+- Angular Material: https://material.angular.io/
+- Nx: https://nx.dev/
